@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API Response
+title: Dynamic Pagination
 nav_order: 3
 has_children: false
 permalink: dynamic-pagination
