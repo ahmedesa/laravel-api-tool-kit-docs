@@ -6,8 +6,59 @@ has_children: false
 permalink: actions
 ---
 
-a
-This is a *ailsaaaaaaa
+## **Actions**
+Actions implement the command design pattern, providing a structured way to encapsulate business logic.
+#### Usage :
+
+Generate an action class:
+
+```
+php artisan make:action CreateCar
+```
+
+```php
+<?php
+namespace App\Actions;
+
+class CreateCar
+{
+    public function execute($data)
+    {
+      //add business logic to create a car
+    }
+}
+```
+The best practice to use the action class is to use dependency injection
+
+you have many options
+1-use Laravel application container
+```php
+app(CreateCar::class)->execute($data);
+```
+2-inject it in the class in the constructor
+
+```php
+private $createCarAction ;
+
+public function __construct(CreateCar $createCarAction)
+{
+    $this->createCarAction=$createCarAction;
+}
+
+public function doSomething()
+{
+    $this->createCarAction->execute($data);
+}
+```
+3-inject the class in Laravel controller function
+
+```php
+public function doSomething(CreateCar $createCarAction)
+{
+    $createCarAction->execute($data);
+}
+```
+[🔝 Back to contents](#contents)
 
 
 ----
