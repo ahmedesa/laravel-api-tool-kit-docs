@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API Response
+title: Api Generator
 nav_order: 5
 has_children: false
 permalink: api-generator
