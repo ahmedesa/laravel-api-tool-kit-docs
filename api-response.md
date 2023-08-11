@@ -40,28 +40,15 @@ Available Methods
 
 | Function                                    | Status Code          
 |:--------------------------------------------|:------------------
-| responseSuccess($message , $data)           | 200
-| responseCreated($message,$data)             | 201 
-| responseDeleted()                           | 204
-| ok           | good `zoute` drop 
-
-
-
-```php
-
-responseSuccess($message , $data)  // returns a 200 HTTP status code
-responseCreated($message,$data)  // returns a 201 HTTP status code 
-  // returns an empty response with a 204 HTTP status code
-responseNotFound($errorDetails,$errorTitle)  // returns a 404 HTTP status code
-responseBadRequest($errorDetails,$errorTitle)  // returns a 400 HTTP status code
-responseUnAuthorized($errorDetails,$errorTitle)  // returns a 403 HTTP status code
-responseConflictError($errorDetails,$errorTitle)  // returns a 409 HTTP status code
-responseUnprocessable($errorDetails,$errorTitle)  // returns a 422 HTTP status code
-responseUnAuthenticated ($errorDetails,$errorTitle) // returns a 401 HTTP status code
-responseWithCustomError($errorTitle, $errorDetails, $statusCode) //send custom error 
-```
-
+| responseSuccess($message , $data)                                | 200
+| responseCreated($message,$data)                                  | 201 
+| responseDeleted()                                                | 204
+|responseNotFound($errorDetails,$errorTitle)                       | 404
+|responseBadRequest($errorDetails,$errorTitle)                     | 400
+|responseUnAuthorized($errorDetails,$errorTitle)                   | 403
+|responseConflictError($errorDetails,$errorTitle)                  | 409
+|responseUnprocessable($errorDetails,$errorTitle)                  | 422
+|responseUnAuthenticated($errorDetails,$errorTitle)                | 401
+|responseWithCustomError($errorTitle, $errorDetails, $statusCode)  | -
 
 ----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
