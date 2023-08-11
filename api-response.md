@@ -37,11 +37,21 @@ Usage: Include the ApiResponse trait in your class, then use the provided method
 $this->responseSuccess('car created successfully' , $car);
 ```
 Available Methods
+
+| Function                                    | Status Code          
+|:--------------------------------------------|:------------------
+| responseSuccess($message , $data)           | 200
+| responseCreated($message,$data)             | 201 
+| responseDeleted()                           | 204
+| ok           | good `zoute` drop 
+
+
+
 ```php
 
 responseSuccess($message , $data)  // returns a 200 HTTP status code
 responseCreated($message,$data)  // returns a 201 HTTP status code 
-responseDeleted()  // returns an empty response with a 204 HTTP status code
+  // returns an empty response with a 204 HTTP status code
 responseNotFound($errorDetails,$errorTitle)  // returns a 404 HTTP status code
 responseBadRequest($errorDetails,$errorTitle)  // returns a 400 HTTP status code
 responseUnAuthorized($errorDetails,$errorTitle)  // returns a 403 HTTP status code
