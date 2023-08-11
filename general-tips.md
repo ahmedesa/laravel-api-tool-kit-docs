@@ -6,8 +6,32 @@ has_children: false
 permalink: general-tips
 ---
 
-a
-This is a *ailsaaaaaaa
+## **General Tips**
+
+Prefer throwing exceptions instead of directly returning JSON responses for better error handling.
+
+Bad:
+
+```php
+public function index()
+{
+    if (auth()->user()->not_active ) {
+        $this->responseUnAuthorized('you can not preform this action');
+    } 
+}
+```
+good
+
+```php
+public function index()
+{
+    if (auth()->user()->not_active ) {
+        throw new AuthorizationException('you can not preform this action');
+    } 
+}
+```
+
+[🔝 Back to contents](#contents)
 
 
 ----
