@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API Response
+title: Actions
 nav_order: 6
 has_children: false
 permalink: actions
