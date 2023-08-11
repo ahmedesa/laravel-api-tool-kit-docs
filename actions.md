@@ -50,7 +50,7 @@ public function doSomething()
     $this->createCarAction->execute($data);
 }
 ```
-3-inject the class in Laravel controller function
+3-inject the class in the Laravel controller function
 
 ```php
 public function doSomething(CreateCar $createCarAction)
@@ -58,8 +58,6 @@ public function doSomething(CreateCar $createCarAction)
     $createCarAction->execute($data);
 }
 ```
-[🔝 Back to contents](#contents)
-
 
 ----
 
