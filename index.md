@@ -1,7 +1,11 @@
 ---
-title: Installation 
-layout: home
+layout: default
+title: Installation
+nav_order: 1
+has_children: false
+permalink: /
 ---
+
 a
 This is a *ailsaaaaaaa
 
