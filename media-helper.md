@@ -6,27 +6,56 @@ has_children: false
 permalink: media-helper
 ---
 ## **Media Helper**
-The Media Helper simplifies file uploading and deletion processes:
-#### Usage :
+The Media Helper is a utility class provided by the Essa\APIToolKit namespace that streamlines the file uploading and deletion processes for your Laravel application.
+### Usage :
+#### **Uploading a File**:
 
-Upload a file:
+```php
+use Essa\APIToolKit\MediaHelper;
 
-```php
-$filePath = MediaHelper::uploadFile($file ,$path); 
+$uploadedFilePath = MediaHelper::uploadFile($file, $path);
 ```
-Delete a file:
+Parameters:
+- **$file** An instance of Illuminate\Http\UploadedFile containing the file to be uploaded.
+- **$path** The directory path where the file should be stored.
+
+#### **Deleting a File**:
+Remove a file using the deleteFile method.
 ```php
-MediaHelper::deleteFile($path); 
+use Essa\APIToolKit\MediaHelper;
+
+MediaHelper::deleteFile($filePath);
 ```
-Upload multiple files:
+Parameters:
+- **$filePath** The path of the file to be deleted.
+  
+#### **Uploading Multiple Files**:
+You can upload multiple files simultaneously using the uploadMultiple method.
 ```php
-$filesPaths = MediaHelper::uploadMultiple($files ,$path); 
+use Essa\APIToolKit\MediaHelper;
+
+$uploadedFilePaths = MediaHelper::uploadMultiple($files, $path);
 ```
-Upload base64 image:
+Parameters:
+
+- **$files** An array of Illuminate\Http\UploadedFile instances containing the files to be uploaded.
+- **$path** The directory path where the files should be stored.
+#### **Uploading Base64 Images**:
+You can upload images in base64 format using the uploadBase64Image method.
 ```php
-$imagePath = MediaHelper::uploadBase64Image($encodedImage ,$path); 
+use Essa\APIToolKit\MediaHelper;
+
+$encodedImage = 'data:image/png;base64,iVBORw0KG...'; // Replace with actual base64 image data
+$path = 'uploads/images'; // Destination path
+
+// Upload the base64 image and get the uploaded image path
+$uploadedImagePath = MediaHelper::uploadBase64Image($encodedImage, $path);
 ```
+Parameters:
+- **$encodedImage** The base64-encoded image data.
+- **$path** The directory path where the image should be stored.
+
+### Conclusion:
+The Media Helper simplifies common file uploading and deletion tasks in your Laravel application. Its methods are designed to make managing files more efficient and user-friendly. Use the provided methods to seamlessly integrate file handling capabilities into your project.
 
 ----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
