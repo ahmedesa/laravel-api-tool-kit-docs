@@ -27,7 +27,7 @@ The `responseSuccess` method generates a successful JSON response with a specifi
 ```php
 $car = // Your car data here
 
-$response = $this->responseSuccess('Car created successfully', $car);
+return $this->responseSuccess('Car created successfully', $car);
 ```
 The response structure will be:
 
@@ -41,7 +41,7 @@ The response structure will be:
 The APIError method constructs an error response with a given status code, title, and optional details. You can use other provided error response methods like `responseNotFound`, `responseUnAuthorized`, and more to generate specific error responses.
 ```php
 $errorDetails = 'Unauthenticated.';
-$this->responseUnAuthenticated($errorDetails, 'Unauthorized');
+return $this->responseUnAuthenticated($errorDetails, 'Unauthorized');
 ```
 The error response structure will be:
 ```json
