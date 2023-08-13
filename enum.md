@@ -26,9 +26,9 @@ class UserTypes extends Enum
 }
 ```
 The Enum class provides several methods to work with enums:
-- **getAll()** Get an array containing all enum values.
-- **isValid($value)** Check if a given value exists as a constant in the enum.
-- **toArray()** Get an associative array containing all enum constants as keys and their respective values.
+- `getAll()` Get an array containing all enum values.
+- `isValid($value)` Check if a given value exists as a constant in the enum.
+- `toArray()` Get an associative array containing all enum constants as keys and their respective values.
 
 ### Example
 Here's an example of using the UserTypes enum:
