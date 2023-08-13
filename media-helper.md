@@ -40,6 +40,7 @@ Parameters:
 
 - **$files** An array of Illuminate\Http\UploadedFile instances containing the files to be uploaded.
 - **$path** The directory path where the files should be stored.
+  
 #### **Uploading Base64 Images**:
 You can upload images in base64 format using the uploadBase64Image method.
 ```php
