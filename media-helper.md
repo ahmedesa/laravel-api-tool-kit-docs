@@ -7,8 +7,7 @@ permalink: media-helper
 ---
 ## **Media Helper**
 The Media Helper is a utility class provided by the Essa\APIToolKit namespace that streamlines the file uploading and deletion processes for your Laravel application.
-### Usage :
-#### **Uploading a File**:
+### Uploading a File
 
 ```php
 use Essa\APIToolKit\MediaHelper;
@@ -19,7 +18,7 @@ Parameters:
 - **$file** An instance of Illuminate\Http\UploadedFile containing the file to be uploaded.
 - **$path** The directory path where the file should be stored.
 
-#### **Deleting a File**:
+### Deleting a File
 Remove a file using the deleteFile method.
 ```php
 use Essa\APIToolKit\MediaHelper;
@@ -29,7 +28,7 @@ MediaHelper::deleteFile($filePath);
 Parameters:
 - **$filePath** The path of the file to be deleted.
   
-#### **Uploading Multiple Files**:
+### Uploading Multiple Files
 You can upload multiple files simultaneously using the uploadMultiple method.
 ```php
 use Essa\APIToolKit\MediaHelper;
@@ -41,7 +40,7 @@ Parameters:
 - **$files** An array of Illuminate\Http\UploadedFile instances containing the files to be uploaded.
 - **$path** The directory path where the files should be stored.
   
-#### **Uploading Base64 Images**:
+### Uploading Base64 Images
 You can upload images in base64 format using the uploadBase64Image method.
 ```php
 use Essa\APIToolKit\MediaHelper;
