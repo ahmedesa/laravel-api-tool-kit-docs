@@ -13,7 +13,7 @@ To begin using the package, follow these steps to install it using Composer:
 ```
 composer require essa/api-tool-kit
 ```
-This command will install the essa/api-tool-kit package in your Laravel project.
+This command will install the package in your Laravel project.
 ### Publish Configuration Files
 To customize the behavior of the package, you can publish the configuration files. Run the following command:
 ```
