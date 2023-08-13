@@ -6,18 +6,25 @@ has_children: false
 permalink: /
 ---
 
-## **Installation**
-To get started, install the package using Composer:
+## **Installation Guide**
+To begin using the package, follow these steps to install it using Composer:
+
+### Install The Package
 ```
 composer require essa/api-tool-kit
 ```
-To publish the configuration files, run:
+This command will install the essa/api-tool-kit package in your Laravel project.
+### Publish Configuration Files
+To customize the behavior of the package, you can publish the configuration files. Run the following command:
 ```
 php artisan vendor:publish --provider="Essa\APIToolKit\APIToolKitServiceProvider" --tag="config"
 ```
-For standardizing error responses, extend your exception handler from the APIHandler class:
-```php
+This command will copy the configuration files into your project's config directory, allowing you to modify settings as needed.
 
+### Standardize Error Responses
+For consistent error responses, extend your application's exception handler from the `APIHandler` class provided by the package. In your `Handler.php` file located in the `app/Exceptions` directory, update it like so:
+
+```php
 namespace App\Exceptions;
 
 use Essa\APIToolKit\Exceptions\Handler as APIHandler;
@@ -27,22 +34,4 @@ class Handler extends APIHandler
 }
 
 ```
-
-Utilize the API Response Trait in your controllers:
-
-`App\Http\Controllers\Controller.php`:
-
-```php
-use Essa\APIToolKit\Api\ApiResponse;
-
-class Controller extends BaseController
-{
-    use ApiResponse;
-}
-```
-For more details, refer to [API response](#api-response)
-
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+This integration ensures that error responses adhere to the standardized format provided by the API toolkit.
