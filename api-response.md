@@ -40,8 +40,7 @@ The response structure will be:
 ### Error Response
 The APIError method constructs an error response with a given status code, title, and optional details. You can use other provided error response methods like `responseNotFound`, `responseUnAuthorized`, and more to generate specific error responses.
 ```php
-$errorDetails = 'Unauthenticated.';
-return $this->responseUnAuthenticated($errorDetails, 'Unauthorized');
+return $this->responseUnAuthenticated(Unauthenticated., 'Unauthorized');
 ```
 The error response structure will be:
 ```json
