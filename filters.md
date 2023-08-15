@@ -83,8 +83,6 @@ GET /cars?color=red
 ```
 ### Available Filtering Operations and Keys
 
-## Filtering Operations and Keys
-
 | Operation      | Key            | Description                                                   | Example                                     |
 |----------------|----------------|---------------------------------------------------------------|---------------------------------------------|
 | Search         | `search`       | Filters results by searching for a keyword across columns.    | `GET /cars?search=red`                      |
