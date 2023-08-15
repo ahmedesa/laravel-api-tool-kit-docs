@@ -50,7 +50,7 @@ Specify the attributes that can be used for sorting using the $allowedSorts prop
 ```php
 protected array $allowedSorts = ['created_at'];
 ```
-To sort in descending or descending order . For example, to sort by created_at :
+To sort in descending or descending order. For example, to sort by created_at :
 ```
 // descending : ?sorts=created_at
 // ascending  : ?sorts=-created_at
@@ -77,15 +77,45 @@ public function year($term)
 }
 ```
 ### Using Filters in Requests
-Filters can be applied by including query parameters in the API request. For example, to filter cars by color:
+By default, the filtering, sorting, inclusion, and search parameters are expected to be provided through the query parameters of your API request. The filters are then processed and applied using the provided query parameter, For example, to filter cars by color:
 ```
 GET /cars?color=red
 ```
-### Additional Tips
-When searching for a value within a column or relationship, use the search query parameter.
-### **DateFilter and TimeFilter**
+### Available Filtering Operations and Keys
 
-The `DateFilter` and `TimeFilter` traits simplify querying records within a specific date or time ranges.
+## Filtering Operations and Keys
+
+| Operation      | Key            | Description                                                   | Example                                     |
+|----------------|----------------|---------------------------------------------------------------|---------------------------------------------|
+| Search         | `search`       | Filters results by searching for a keyword across columns.    | `GET /cars?search=red`                      |
+| Sorting        | `sorts`        | Sorts results based on specified attributes.                  | `GET /cars?sorts=created_at`                |
+| Filtering      | Custom filters | Applies custom filters based on defined attributes.           | `GET /cars?color=red&model_id=1`            |
+| Inclusion      | `includes`     | Eager loads specified relationships.                          | `GET /cars?includes=model,otherModel`                  |
+
+
+### Customizing Filters with FiltersDTO
+However, you can also override this default behavior by manually creating a FiltersDTO instance and passing it to the useFilters scope method. This gives you more control over the filter data and allows you to apply filters without relying on the query parameters.
+
+Here's an example of how you can use the FiltersDTO to apply custom filters:
+```php
+use Essa\APIToolKit\Tests\Mocks\Models\TestModel;
+use Essa\APIToolKit\DTO\FiltersDTO;
+
+// Create a FiltersDTO instance manually
+$filtersDTO = new FiltersDTO(
+    sorts: 'created_at', // Sort by created_at in ascending order
+    filters: ['name' => 'Car'], // Filter by name
+    includes: ['relation'], // Include sluggableTestModel relation
+    search: '2023' // Search for the year 2023
+);
+
+// Pass the custom FiltersDTO to the useFilters scope method
+$records = TestModel::useFilters(filteredDTO: $filtersDTO)->get();
+
+```
+### DateFilter and TimeFilter
+
+The `DateFilter` and `TimeFilter` traits simplify querying records within a specific date or time range.
 
 To use these traits, include them in your filter class:
 
