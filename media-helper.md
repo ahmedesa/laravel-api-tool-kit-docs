@@ -19,6 +19,7 @@ Parameters:
 - `$path` (string): The directory path where the file should be stored.
 - `$fileName` (string, optional): A custom filename to use for the uploaded file. If not provided, a filename will be generated automatically.
 - `$withOriginalName` (bool, optional): If set to true, the file will be saved with its original name. Default is false.
+  
 ### Deleting a File
 Remove a file using the deleteFile method.
 ```php
