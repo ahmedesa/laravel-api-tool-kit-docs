@@ -43,6 +43,7 @@ Parameters:
 - `$path` The directory path where the files should be stored.
 - `$withOriginalNames` (bool, optional): If set to true, the files will be saved with their original names. The default is false.
 - `$filesNames` (array, optional): An array of custom filenames to use for the uploaded files. If not provided, filenames will be generated automatically.
+  
 ### Uploading Base64 Images
 You can upload images in base64 format using the uploadBase64Image method.
 ```php
@@ -58,6 +59,7 @@ Parameters:
 - `$encodedImage` The base64-encoded image data.
 - `$path` The directory path where the image should be stored.
 - `$fileName` (string, optional): A custom filename to use for the uploaded image. If not provided, a filename will be generated automatically.
+  
 ### Conclusion:
 The Media Helper simplifies common file uploading and deletion tasks in your Laravel application. Its methods are designed to make managing files more efficient and user-friendly. Use the provided methods to seamlessly integrate file handling capabilities into your project.
 
