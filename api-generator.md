@@ -57,6 +57,12 @@ The API Generator allows you to customize the files you want to generate. You ca
 | `--routes` | | Add API routes to `routes/api.php`. |
 | `--soft-delete` | | Enable soft delete for the model. |
 
+#### Example: Using Customization Options:
+Here's an example of how to generate a Car model with a controller, create and update request files, and enable soft delete :
+```php
+php artisan api:generate Car -cR --soft-delete
+```
+
 ### Conclusion:
 The API Generator feature offers a streamlined and convenient way to generate essential API-related files for your models. Whether you're working with default options or customizing the generation process, this tool enables you to quickly set up controllers, resources, requests, and more. Experiment with the customization options to efficiently create API components that align with your project's architecture and requirements.
 
