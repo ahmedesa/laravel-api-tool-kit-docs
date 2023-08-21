@@ -41,6 +41,40 @@ By default, the API Generator creates the following files for the specified `Mod
 
 In addition, the generator automatically adds the necessary API routes to the routes/api.php file.
 
+### Folder Structure of Generated Files
+```
+.
+├── app
+│   ├── Http
+│   │   ├── Controllers
+│   │   │   └── API
+│   │   │       └── CarController.php
+│   │   ├── Requests
+│   │   │   └── Car
+│   │   │       ├── CreateCarRequest.php
+│   │   │       └── UpdateCarRequest.php
+│   │   └── Resources
+│   │       └── Car
+│   │           └── CarResource.php
+│   └── Models
+│       └── Car.php
+├── database
+│   ├── factories
+│   │   └── CarFactory.php
+│   ├── migrations
+│   │   └── x_x_x_x_create_cars_table.php
+│   └── seeders
+│       └── CarSeeder.php
+├── tests
+│   └── Feature
+│       └── CarTest.php
+├── app
+│   └── Filters
+│       └── CarFilters.php
+└── routes
+    └── api.php
+```
+
 ### Customization
 The API Generator allows you to customize the files you want to generate. You can opt to create specific components as per your project requirements. The available customization options are:
 
