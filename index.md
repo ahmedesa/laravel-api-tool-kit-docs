@@ -35,3 +35,17 @@ class Handler extends APIHandler
 
 ```
 This integration ensures that error responses adhere to the standardized format provided by the API toolkit.
+
+### Utilize the API Response Trait in your controllers
+
+```php
+namespace App\Http\Controllers;
+
+use Essa\APIToolKit\Api\ApiResponse;
+
+class Controller extends BaseController
+{
+    use ApiResponse;
+}
+```
+For more details, refer to [API response](https://ahmedesa.github.io/laravel-api-tool-kit-docs/api-response)
