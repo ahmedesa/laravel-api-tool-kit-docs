@@ -74,6 +74,18 @@ In addition, the generator automatically adds the necessary API routes to the ro
 └── routes
     └── api.php
 ```
+### Schema Option (In progress)
+The schema option allows you to define the columns of the database table associated with the model. It defines the data type, attributes, and relationships of each column. The syntax for the schema option is as follows:
+
+```php
+php artisan api:generate ModelName --all --schema="column1:dataType:attributes,column2:dataType:attributes,..."
+```
+For example:
+
+```php
+php artisan api:generate Car --all --schema="name:string:nullable,price:decimal"
+```
+This will generate migration, model, resource, request, and other files with the specified schema attributes.
 
 ### Customization
 The API Generator allows you to customize the files you want to generate. You can opt to create specific components as per your project requirements. The available customization options are:
