@@ -8,7 +8,7 @@ permalink: dynamic-pagination
 # Dynamic Pagination
 {: .no_toc }
 
-Dynamic Pagination provides you with the flexibility to control the number of results displayed per page in your API responses. This feature allows you to tailor the pagination behavior according to your application's needs.{: .fs-6 .fw-300 }
+Dynamic Pagination provides you with the flexibility to control the number of results displayed per page in your API responses. This feature allows you to tailor the pagination behavior according to your application's needs.
 
 ## Table of contents
 {: .no_toc .text-delta }
