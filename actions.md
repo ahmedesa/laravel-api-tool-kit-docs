@@ -9,7 +9,7 @@ permalink: actions
 # Actions
 {: .no_toc }
 
-The Actions feature employs the command design pattern to encapsulate business logic within distinct and organized classes. This approach enhances code structure, readability, and maintainability in your Laravel application.{: .fs-6 .fw-300 }
+The Actions feature employs the command design pattern to encapsulate business logic within distinct and organized classes. This approach enhances code structure, readability, and maintainability in your Laravel application.
 
 ## Table of contents
 {: .no_toc .text-delta }
