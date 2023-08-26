@@ -5,9 +5,19 @@ nav_order: 8
 has_children: false
 permalink: enum
 ---
+# Enum
+{: .no_toc }
 
-## **Enum**
-The Enum class provides a convenient way to work with enumerations, allowing you to define a set of named constants that represent distinct values. By using enums, you can eliminate hardcoded values in your code and ensure consistency and maintainability.
+The Enum class provides a convenient way to work with enumerations, allowing you to define a set of named constants that represent distinct values. By using enums, you can eliminate hardcoded values in your code and ensure consistency and maintainability.{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ### Generating an Enum Class
 To create a new enum class, you can use the make:enum Artisan command:
 ```
