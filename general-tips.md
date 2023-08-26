@@ -16,7 +16,7 @@ permalink: general-tips
 
 ---
 
-## Use Exceptions for Clear Error Handling
+### Use Exceptions for Clear Error Handling
 Prefer throwing exceptions instead of directly returning JSON responses. The package will catch the error and format the response automatically.
 
 Bad:
