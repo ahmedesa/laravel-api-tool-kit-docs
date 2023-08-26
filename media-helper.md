@@ -5,8 +5,20 @@ nav_order: 7
 has_children: false
 permalink: media-helper
 ---
-## **Media Helper**
-The Media Helper is a utility class provided by the `Essa\APIToolKit` namespace that streamlines the file uploading and deletion processes for your Laravel application.
+
+# Media Helper
+{: .no_toc }
+
+The Media Helper is a utility class provided by the `Essa\APIToolKit` namespace that streamlines the file uploading and deletion processes for your Laravel application.{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ### Uploading a File
 
 ```php
