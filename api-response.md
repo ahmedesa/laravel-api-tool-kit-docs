@@ -19,7 +19,7 @@ The API Response feature streamlines the process of generating consistent and st
 
 ---
 
-### Including the ApiResponse Trait
+### How to use
 To take advantage of the API Response functionality, include the `ApiResponse` trait in your class:
 ```php
 use Essa\APIToolKit\Api\ApiResponse;
