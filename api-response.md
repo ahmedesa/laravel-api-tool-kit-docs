@@ -9,7 +9,7 @@ permalink: api-response
 # API Response
 {: .no_toc }
 
-The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.{: .fs-6 .fw-300 }
+The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.
 
 ## Table of contents
 {: .no_toc .text-delta }
