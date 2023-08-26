@@ -5,11 +5,21 @@ nav_order: 9
 has_children: false
 permalink: general-tips
 ---
+# Typography
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## **General Tips**
 
 ### Use Exceptions for Clear Error Handling
-Prefer throwing exceptions instead of directly returning JSON responses. The the package will catch the error and format the response automatically.
+Prefer throwing exceptions instead of directly returning JSON responses. The package will catch the error and format the response automatically.
 
 Bad:
 
