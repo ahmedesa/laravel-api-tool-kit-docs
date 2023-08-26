@@ -18,7 +18,7 @@ The API Generator simplifies the process of creating API-related files for a mod
 
 ---
 
-### Usage :
+### Usage 
 To generate API-related files for a specific model, use the following command:
 
 ```
