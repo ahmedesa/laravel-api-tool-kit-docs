@@ -5,7 +5,7 @@ nav_order: 9
 has_children: false
 permalink: general-tips
 ---
-# Typography
+# General Tips
 {: .no_toc }
 
 ## Table of contents
@@ -15,8 +15,6 @@ permalink: general-tips
 {:toc}
 
 ---
-
-## **General Tips**
 
 ### Use Exceptions for Clear Error Handling
 Prefer throwing exceptions instead of directly returning JSON responses. The package will catch the error and format the response automatically.
