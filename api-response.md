@@ -6,9 +6,19 @@ has_children: false
 permalink: api-response
 ---
 
-## **API Response**
+# API Response
+{: .no_toc }
 
-The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.
+The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ### Usage :
 ### Including the ApiResponse Trait
 To take advantage of the API Response functionality, include the `ApiResponse` trait in your class:
