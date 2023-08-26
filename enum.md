@@ -8,7 +8,7 @@ permalink: enum
 # Enum
 {: .no_toc }
 
-The Enum class provides a convenient way to work with enumerations, allowing you to define a set of named constants that represent distinct values. By using enums, you can eliminate hardcoded values in your code and ensure consistency and maintainability.{: .fs-6 .fw-300 }
+The Enum class provides a convenient way to work with enumerations, allowing you to define a set of named constants that represent distinct values. By using enums, you can eliminate hardcoded values in your code and ensure consistency and maintainability.
 
 ## Table of contents
 {: .no_toc .text-delta }
