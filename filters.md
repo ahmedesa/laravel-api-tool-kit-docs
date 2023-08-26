@@ -8,7 +8,7 @@ permalink: filters
 # Filters
 {: .no_toc }
 
-Filters allow you to refine API query results based on various attributes.{: .fs-6 .fw-300 }
+Filters allow you to refine API query results based on various attributes.
 
 ## Table of contents
 {: .no_toc .text-delta }
