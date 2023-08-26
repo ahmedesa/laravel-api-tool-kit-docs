@@ -5,9 +5,18 @@ nav_order: 4
 has_children: false
 permalink: filters
 ---
+# Filters
+{: .no_toc }
 
-## **Filters**
-Filters allow you to refine API query results based on various attributes.
+Filters allow you to refine API query results based on various attributes.{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ### Creating a Filter
 
