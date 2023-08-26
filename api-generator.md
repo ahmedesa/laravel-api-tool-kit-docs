@@ -8,7 +8,7 @@ permalink: api-generator
 # API Generator
 {: .no_toc }
 
-The API Generator simplifies the process of creating API-related files for a model, making it quick and easy to set up the required components. It offers the ability to generate files such as controllers, requests, resources, migrations, factories, seeders, filters, tests, and even API routes.{: .fs-6 .fw-300 }
+The API Generator simplifies the process of creating API-related files for a model, making it quick and easy to set up the required components. It offers the ability to generate files such as controllers, requests, resources, migrations, factories, seeders, filters, tests, and even API routes.
 
 ## Table of contents
 {: .no_toc .text-delta }
