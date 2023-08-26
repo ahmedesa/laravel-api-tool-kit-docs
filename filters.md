@@ -120,7 +120,7 @@ $filtersDTO = new FiltersDTO(
 $records = TestModel::useFilters(filteredDTO: $filtersDTO)->get();
 
 ```
-### DateFilter and TimeFilter
+### Date and Time Filters
 
 The `DateFilter` and `TimeFilter` traits simplify querying records within a specific date or time range.
 
