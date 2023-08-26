@@ -6,8 +6,18 @@ has_children: false
 permalink: actions
 ---
 
-## **Actions**
-The Actions feature employs the command design pattern to encapsulate business logic within distinct and organized classes. This approach enhances code structure, readability, and maintainability in your Laravel application.
+# Actions
+{: .no_toc }
+
+The Actions feature employs the command design pattern to encapsulate business logic within distinct and organized classes. This approach enhances code structure, readability, and maintainability in your Laravel application.{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ### Generating an Action Class
 To create an action class, you can utilize the make:action Artisan command:
