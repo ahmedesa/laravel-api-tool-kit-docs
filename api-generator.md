@@ -85,19 +85,19 @@ In addition, the generator automatically adds the necessary API routes to the ro
     └── api.php
 ```
 ## Schema Option
-The `--schema` option in the API Generator simplifies the process of generating API-related files for your model by allowing you to define your database columns and their attributes directly in the command. This option lets you specify the schema in a format that closely resembles Laravel's database migrations.
+The `schema` option in the API Generator simplifies the process of generating API-related files for your model by allowing you to define your database columns and their attributes directly in the command. This option lets you specify the schema in a format that closely resembles Laravel's database migrations.
 ### How to Use Schema
 The schema is defined as a comma-separated list of column definitions in the format `COLUMN_NAME:COLUMN_TYPE:OPTIONS`. Here's an example of how to define a schema:
 
 ```
-php artisan api:generate Customer "username:string|age:integer:nullable|company_id:foreignId" --all
+php artisan api:generate Customer schema="username:string|age:integer:nullable|company_id:foreignId" --all
 ```
 
 In the above example, we define three columns: username, and age, company_id, each with its respective data type and options.
 
 ### Generated Files and Their Content
 
-When using the `--schema` option, the API Generator will generate various files tailored to the specified schema. Here's how the schema affects different files:
+When using the `schema` option, the API Generator will generate various files tailored to the specified schema. Here's how the schema affects different files:
 
 #### Model File
 The generated model file will include the fillable attributes and relationships based on the schema. Here's an example:
