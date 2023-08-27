@@ -89,8 +89,8 @@ The `--schema` option in the API Generator simplifies the process of generating 
 ### How to Use Schema
 The schema is defined as a comma-separated list of column definitions in the format `COLUMN_NAME:COLUMN_TYPE:OPTIONS. Here's an example of how to define a schema:
 
-```php
---schema="username:string|age:integer:nullable|company_id:foreignId"
+```
+php artisan api:generate Customer "username:string|age:integer:nullable|company_id:foreignId" --all
 ```
 
 In the above example, we define three columns: username, and age, company_id, each with its respective data type and options.
