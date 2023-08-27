@@ -5,3 +5,6 @@ favicon_ico: "favicon.ico"
 
 #logo: "/logo.png"
 url: https://ahmedesa.github.io/laravel-api-tool-kit-docs
+
+aux_links:
+  Github Repository: https://github.com/ahmedesa/laravel-api-tool-kit
