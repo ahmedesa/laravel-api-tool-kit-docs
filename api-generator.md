@@ -124,8 +124,11 @@ The factory file will use the schema to generate sample data for testing. Each d
 ```php
 'username' => $this->faker->firstName(),
 'age' => $this->faker->randomNumber(),
-'company_id' => $this->faker->randomNumber(),
+'company_id' => createOrRandomFactory(Company::class),
 ```
+> **Note**
+> `createOrRandomFactory()` function creates a new instance or fetches a random record from a class using a factory.
+
 #### Request Files
 The generated request files will include the validation rules based on the schema.
 ```php
@@ -142,6 +145,8 @@ The resource file will define the structure of the API response using the schema
 'created_at' => dateTimeFormat($this->created_at),
 'updated_at' => dateTimeFormat($this->updated_at),
 ```
+> **Note**
+> `dateTimeFormat()` function used to format datetime formats you can change the format from `api-tool-kit` config file.
 
 ## Customization
 The API Generator allows you to customize the files you want to generate. You can opt to create specific components as per your project requirements. The available customization options are:
