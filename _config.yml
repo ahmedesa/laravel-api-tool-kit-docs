@@ -6,3 +6,5 @@ favicon_ico: "favicon.ico"
 url: https://ahmedesa.github.io/laravel-api-tool-kit-docs
 
 color_scheme: custom
+aux_links:
+  Github Repository: https://github.com/ahmedesa/laravel-api-tool-kit
