@@ -18,7 +18,7 @@ The API Generator simplifies the process of creating API-related files for a mod
 
 ---
 
-### Usage 
+## Usage 
 To generate API-related files for a specific model, use the following command:
 
 ```
@@ -30,10 +30,10 @@ Upon executing the command, you'll be presented with options to tailor the gener
 
 - If you use `--all` option it will proceed with all the default options, the generator will create files for all available options specified in the `config/api-tool-kit` configuration.
 Alternatively, you can choose to customize the generation by selecting specific files to create.
-- when you type the command it will ask you whether you want default options :
+- When you type the command it will ask you whether you want default options :
 
-### All Options:
-By default, the API Generator creates the following files for the specified `ModelName` using the `--all` ,If you don't use `--all`, it will only create the Model clas:
+## All Options:
+By default, the API Generator creates the following files for the specified `ModelName` using the `--all` ,If you don't use `--all`, it will only create the Model class:
 
 | Default Options | Location |
 |-----------------|----------|
@@ -51,7 +51,7 @@ By default, the API Generator creates the following files for the specified `Mod
 
 In addition, the generator automatically adds the necessary API routes to the routes/api.php file.
 
-### Folder Structure of Generated Files
+## Folder Structure of Generated Files
 ```
 .
 ├── app
@@ -84,20 +84,66 @@ In addition, the generator automatically adds the necessary API routes to the ro
 └── routes
     └── api.php
 ```
-### Schema Option (In progress)
-The schema option allows you to define the columns of the database table associated with the model. It defines the data type, attributes, and relationships of each column. The syntax for the schema option is as follows:
+## Schema Option (In progress)
+The `--schema` option in the API Generator simplifies the process of generating API-related files for your model by allowing you to define your database columns and their attributes directly in the command. This option lets you specify the schema in a format that closely resembles Laravel's database migrations.
+### How to Use Schema
+The schema is defined as a comma-separated list of column definitions in the format `COLUMN_NAME:COLUMN_TYPE:OPTIONS. Here's an example of how to define a schema:
 
 ```php
-php artisan api:generate ModelName --all --schema="column1:dataType:attributes,column2:dataType:attributes,..."
+--schema="username:string|age:integer:nullable|company_id:foreignId"
 ```
-For example:
+
+In the above example, we define three columns: username, and age, company_id, each with its respective data type and options.
+
+### Generated Files and Their Content
+
+When using the `--schema` option, the API Generator will generate various files tailored to the specified schema. Here's how the schema affects different files:
+
+#### Model File
+The generated model file will include the fillable attributes and relationships based on the schema. Here's an example:
 
 ```php
-php artisan api:generate Car --all --schema="name:string:nullable,price:decimal"
-```
-This will generate migration, model, resource, request, and other files with the specified schema attributes.
+protected $fillable = ['username', 'company_id', 'age'];
 
-### Customization
+public function company()
+{
+    return $this->belongsTo(Company::class);
+}
+
+```
+#### Migration File 
+The migration file will be created with columns and options according to the schema definition. For instance:
+```php
+$table->string('username');
+$table->integer('age')->nullable();
+$table->foreignId('company_id')->constrained('companies');
+```
+
+#### Factory File 
+The factory file will use the schema to generate sample data for testing. Each defined attribute will be assigned a corresponding Faker method. For example:
+```php
+'username' => $this->faker->firstName(),
+'age' => $this->faker->randomNumber(),
+'company_id' => $this->faker->randomNumber(),
+```
+#### Request Files
+The generated request files will include the validation rules based on the schema.
+```php
+'username' => ['required', 'string'],
+'age' => ['nullable', 'integer'],
+'company_id' => ['required'],
+```
+#### Resource File
+The resource file will define the structure of the API response using the schema attributes.
+```php
+'username' => $this->username,
+'age' => $this->age,
+'company_id' => $this->company_id,
+'created_at' => dateTimeFormat($this->created_at),
+'updated_at' => dateTimeFormat($this->updated_at),
+```
+
+## Customization
 The API Generator allows you to customize the files you want to generate. You can opt to create specific components as per your project requirements. The available customization options are:
 
 | Customization Options | Shortcuts | Description |
@@ -113,13 +159,13 @@ The API Generator allows you to customize the files you want to generate. You ca
 | `--routes` | | Add API routes to `routes/api.php`. |
 | `--soft-delete` | | Enable soft delete for the model. |
 
-#### Example: Using Customization Options:
+### Example: Using Customization Options:
 Here's an example of how to generate a Car model with a controller, create and update request files, and enable soft delete :
 ```php
 php artisan api:generate Car -cR --soft-delete
 ```
 
-### Conclusion:
+## Conclusion:
 The API Generator feature offers a streamlined and convenient way to generate essential API-related files for your models. Whether you're working with default options or customizing the generation process, this tool enables you to quickly set up controllers, resources, requests, and more. Experiment with the customization options to efficiently create API components that align with your project's architecture and requirements.
 
 ----
