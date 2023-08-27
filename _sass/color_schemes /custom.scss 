@@ -1,2 +1,0 @@
-$link-color: $green-300;
-$sidebar-color: lighten($green-000, 40%);
