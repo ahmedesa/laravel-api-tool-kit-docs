@@ -84,26 +84,26 @@ In addition, the generator automatically adds the necessary API routes to the ro
 └── routes
     └── api.php
 ```
-## Schema Option (In progress)
-The `--schema` option in the API Generator simplifies the process of generating API-related files for your model by allowing you to define your database columns and their attributes directly in the command. This option lets you specify the schema in a format that closely resembles Laravel's database migrations.
+## Schema Option
+The schema option in the API Generator simplifies the process of generating API-related files for your model by allowing you to define your database columns and their attributes directly in the command. This option lets you specify the schema in a format that closely resembles Laravel's database migrations.
 ### How to Use Schema
 The schema is defined as a comma-separated list of column definitions in the format `COLUMN_NAME:COLUMN_TYPE:OPTIONS`. Here's an example of how to define a schema:
 
 ```
-php artisan api:generate Customer "username:string|age:integer:nullable|company_id:foreignId" --all
+php artisan api:generate Customer "username:string|age:integer:nullable|company_id:foreignId|status:enum(new,old)" --all
 ```
 
 In the above example, we define three columns: username, and age, company_id, each with its respective data type and options.
 
 ### Generated Files and Their Content
 
-When using the `--schema` option, the API Generator will generate various files tailored to the specified schema. Here's how the schema affects different files:
+When using the schema option, the API Generator will generate various files tailored to the specified schema. Here's how the schema affects different files:
 
 #### Model File
 The generated model file will include the fillable attributes and relationships based on the schema. Here's an example:
 
 ```php
-protected $fillable = ['username', 'company_id', 'age'];
+protected $fillable = ['username', 'company_id', 'age', 'status'];
 
 public function company()
 {
@@ -117,6 +117,7 @@ The migration file will be created with columns and options according to the sch
 $table->string('username');
 $table->integer('age')->nullable();
 $table->foreignId('company_id')->constrained('companies');
+$table->enum('status', ['old', 'new']);
 ```
 
 #### Factory File 
@@ -125,6 +126,7 @@ The factory file will use the schema to generate sample data for testing. Each d
 'username' => $this->faker->firstName(),
 'age' => $this->faker->randomNumber(),
 'company_id' => createOrRandomFactory(Company::class),
+'status' => $this->faker->randomElement(['old', 'new']),
 ```
 > **Note**
 > `createOrRandomFactory()` function creates a new instance or fetches a random record from a class using a factory.
@@ -135,12 +137,14 @@ The generated request files will include the validation rules based on the schem
 'username' => ['required', 'string'],
 'age' => ['nullable', 'integer'],
 'company_id' => ['required'],
+'status' => ['sometimes', 'in:old,new'],
 ```
 #### Resource File
 The resource file will define the structure of the API response using the schema attributes.
 ```php
 'username' => $this->username,
 'age' => $this->age,
+'status' => $this->status,
 'company_id' => $this->company_id,
 'created_at' => dateTimeFormat($this->created_at),
 'updated_at' => dateTimeFormat($this->updated_at),

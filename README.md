@@ -1,4 +1,4 @@
-# Access our documentation of the Laravel API Toolkit:
+# Access our documentation of the Laravel API Toolkit
 
 <img alt="OpenAPI Initiative" src="https://raw.githubusercontent.com/ahmedesa/laravel-api-tool-kit/master/laravel-api-tool-kit.png" width="100%" height="auto">
 
