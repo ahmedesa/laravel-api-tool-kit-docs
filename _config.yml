@@ -4,7 +4,7 @@ theme: just-the-docs
 favicon_ico: "favicon.ico"
 #logo: "https://raw.githubusercontent.com/ahmedesa/laravel-api-tool-kit/master/laravel-api-tool-kit.png"
 //url: https://ahmedesa.github.io/laravel-api-tool-kit-docs
-url: http://laravelapitoolkit.com
+url: https://laravelapitoolkit.com
 
 aux_links:
   Github Repository: https://github.com/ahmedesa/laravel-api-tool-kit
