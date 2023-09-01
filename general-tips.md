@@ -16,7 +16,7 @@ permalink: general-tips
 
 ---
 
-### Use Exceptions for Clear Error Handling
+## Use Exceptions for Clear Error Handling
 Prefer throwing exceptions instead of directly returning JSON responses. The package will catch the error and format the response automatically.
 
 Bad:
@@ -53,7 +53,7 @@ When the exception is thrown, the package will capture it and format the respons
 ```
 This approach ensures consistent error handling and standardized response formatting throughout your API.
 
-### Optimizing Search Operations in Your Database
+## Optimizing Search Operations in Your Database
 
 When implementing search functionality in your API with the [Query Filters](https://laravelapitoolkit.com/filters), iit's essential to consider its potential impact on your database performance. The typical %like% search, as demonstrated in the example, can be resource-intensive and may not be suitable for large-scale projects or databases with extensive data. Here are some important considerations and alternatives:
 #### Database Performance
