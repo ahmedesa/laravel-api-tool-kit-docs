@@ -139,7 +139,7 @@ class TestModelFilters extends QueryFilters
     use DateFilter;
     use TimeFilter;
 
-    // ...
+    // ... 
 }
 ```
 Example: Retrieve records created between '2023-08-01' and '2023-08-15' within a time range of '09:00:00' to '12:00:00':
