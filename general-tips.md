@@ -64,4 +64,8 @@ Query filters use the %like% approach, which can lead to slow query execution, e
 
 By considering these alternatives, you can optimize your API's search functionality and ensure better performance, especially when dealing with substantial data loads.
 
+{: .warning }
+A paragraph...
+
+
 ----
