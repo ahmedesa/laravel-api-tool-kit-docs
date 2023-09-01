@@ -77,7 +77,7 @@ protected array $relationSearch = [
     'user' => ['first_name', 'last_name']
 ];
 ```
-{: .warning }
+> **Warning**
 > Search functionality is very dangerous to use please check [Optimizing Search Operations in Your Database](https://laravelapitoolkit.com/general-tips#optimizing-search-operations-in-your-database).
 
 ### Creating Custom Filters
