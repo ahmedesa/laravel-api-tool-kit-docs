@@ -79,7 +79,7 @@ protected array $relationSearch = [
 ```
 
 {: .warning }
-Search functionality can affect database performance you have to use it wisely. [Optimizing Search Operations in Your Database](https://laravelapitoolkit.com/general-tips#optimizing-search-operations-in-your-database).
+Search functionality can affect database performance you have to use it wisely, See [Optimizing Search Operations in Your Database](https://laravelapitoolkit.com/general-tips#optimizing-search-operations-in-your-database).
 
 ### Creating Custom Filters
 You can create custom filters by adding new methods to your filter class. For example, to filter cars by their manufacturing year:
