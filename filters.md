@@ -79,6 +79,7 @@ protected array $relationSearch = [
 ```
 > **Note**
 > Search functionality is very dangerous to use please check [Optimizing Search Operations in Your Database](https://laravelapitoolkit.com/general-tips#optimizing-search-operations-in-your-database).
+
 ### Creating Custom Filters
 You can create custom filters by adding new methods to your filter class. For example, to filter cars by their manufacturing year:
 ```php
