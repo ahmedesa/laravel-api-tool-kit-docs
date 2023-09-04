@@ -74,6 +74,7 @@ Parameters:
   
 ### Uploading to a Custom Disk
 You can upload files to any configured disk using the disk method. If no disk is explicitly specified, the default disk will be used for the operation; otherwise, the specified disk will be used.
+
 Example:
 
 ```php
@@ -95,6 +96,6 @@ $uploadedFilePath = MediaHelper::uploadFile($file, $path, $fileName = null, $wit
 ```
   
 ### Conclusion:
-The Media Helper simplifies common file uploading and deletion tasks in your Laravel application. Its methods are designed to make managing files more efficient and user-friendly. Use the provided methods to seamlessly integrate file handling capabilities into your project.
+The Media Helper simplifies common file uploading and deletion tasks in your Laravel application. Its methods are designed to make managing files more efficient and user-friendly. Use the provided methods to seamlessly integrate file-handling capabilities into your project.
 
 ----
