@@ -90,7 +90,7 @@ $uploadedFilePaths = MediaHelper::disk('s3')->uploadMultiple($files, $path, $fil
 // Upload a base64 image to the 's3' disk
 $uploadedImagePath = MediaHelper::disk('s3')->uploadBase64Image($encodedImage, $path, $fileName = null);
 
-// Use the default filesystem disk (fallback to 'public' if not explicitly configured)
+// Use the default filesystem disk
 $uploadedFilePath = MediaHelper::uploadFile($file, $path, $fileName = null, $withOriginalName = false);
 
 ```
