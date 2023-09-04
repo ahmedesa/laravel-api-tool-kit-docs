@@ -71,6 +71,29 @@ Parameters:
 - `$encodedImage` The base64-encoded image data.
 - `$path` The directory path where the image should be stored.
 - `$fileName` (string, optional): A custom filename to use for the uploaded image. If not provided, a filename will be generated automatically.
+### Uploading to a Custom Disk
+You can upload files to any configured disk using the disk method. If no disk is explicitly specified, the default disk will be used for the operation; otherwise, the specified disk will be used.
+
+Example:
+
+
+```php
+// Upload a file to the 's3' disk
+$uploadedFilePath = MediaHelper::disk('s3')->uploadFile($file, $path, $fileName = null, $withOriginalName = false);
+
+// Delete a file from the 's3' disk
+MediaHelper::disk('s3')->deleteFile($filePath);
+
+// Upload multiple files to the 's3' disk
+$uploadedFilePaths = MediaHelper::disk('s3')->uploadMultiple($files, $path, $filesNames = null, $withOriginalNames = false);
+
+// Upload a base64 image to the 's3' disk
+$uploadedImagePath = MediaHelper::disk('s3')->uploadBase64Image($encodedImage, $path, $fileName = null);
+
+// Use the default filesystem disk (fallback to 'public' if not explicitly configured)
+$uploadedFilePath = MediaHelper::uploadFile($file, $path, $fileName = null, $withOriginalName = false);
+
+```
   
 ### Conclusion:
 The Media Helper simplifies common file uploading and deletion tasks in your Laravel application. Its methods are designed to make managing files more efficient and user-friendly. Use the provided methods to seamlessly integrate file handling capabilities into your project.
