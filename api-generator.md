@@ -251,8 +251,8 @@ For example, to configure the `"v1"` group with custom path resolver classes for
 'generator_path_groups' => [
     // ...other groups...
     'v1' => [
-        'model' => App\CustomGroups\GroupV1\V1ModelPathResolver::class,
-        'controller' => App\CustomGroups\GroupV1\V1ControllerPathResolver::class,
+        'model' => App\CustomGroups\v1\V1ResourcePathResolver::class,
+        'resource' => App\CustomGroups\v1\V1ControllerPathResolver::class,
         // Add path resolver classes for other file types here
     ],
 ],
