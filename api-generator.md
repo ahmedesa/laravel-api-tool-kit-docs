@@ -177,7 +177,7 @@ php artisan api:generate Car -cR --soft-delete
 ## Creating a New Group with Custom File Locations (upcoming feature)
 When creating a new group using the API Generator, you can specify custom locations for different types of files, such as models, controllers, factories, and more. Customizing file locations within a group allows you to maintain a well-structured codebase tailored to your project's needs. 
 Example :
-``
+```
 php artisan api:generate ModelName --all --group=v1
 ```
 
