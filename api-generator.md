@@ -174,6 +174,101 @@ Here's an example of how to generate a Car model with a controller, create and u
 php artisan api:generate Car -cR --soft-delete
 ```
 
+## Creating a New Group with Custom File Locations (upcoming feature)
+When creating a new group using the API Generator, you can specify custom locations for different types of files, such as models, controllers, factories, and more. Customizing file locations within a group allows you to maintain a well-structured codebase tailored to your project's needs. 
+Example :
+``
+php artisan api:generate ModelName --all --group=v1
+```
+
+Here's how to create a new group with custom file locations:
+
+### Step 1: Configure Custom File Locations
+
+To customize the file locations within your group, you need to create a path resolver class for each file type you want to customize (e.g., model, controller, factory). Each path resolver class should implement the `HasClassAndNamespace` interface and define the `folderPath()`, `fileName()`, and `getNameSpace()` methods.
+
+Here's an example of creating custom path resolver classes for a "v1" group:
+
+Resource Path Resolver:
+
+```php
+namespace App\CustomGroups\V1;
+
+use Essa\APIToolKit\Generator\Contracts\HasClassAndNamespace;
+
+class V1ResourcePathResolver implements HasClassAndNamespace
+{
+    public function folderPath(): string
+    {
+        return app_path("Http/Resources/v1/{$this->model}");
+    }
+
+    public function fileName(): string
+    {
+        return "{$this->model}Resource.php";
+    }
+
+    public function getNameSpace(): string
+    {
+        return "App\Http\Resources\v1\\{$this->model}";
+    }
+}
+```
+Controller Path Resolver:
+```php
+namespace App\CustomGroups\v1;
+
+use Essa\APIToolKit\Generator\Contracts\HasClassAndNamespace;
+
+class V1ControllerPathResolver implements HasClassAndNamespace
+{
+    public function folderPath(): string
+    {
+        return app_path('CustomGroups/v1/Controllers');
+    }
+
+    public function fileName(): string
+    {
+        return "{$this->model}Controller.php";
+    }
+
+    public function getNameSpace(): string
+    {
+        return 'App\CustomGroups\v1\Controllers';
+    }
+}
+```
+You can create similar path resolver classes for other file types such as factories, requests, resources, and more, as needed.
+
+{: .note }
+When creating custom groups, it's essential to provide path resolver classes for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
+
+### Step 2: Configure the Generator for the New Group
+In your `config/api-tool-kit.php` configuration file, define the path resolver classes for each file type within the new group under the "generator_path_groups" section. Use the group name as the key and the path resolver classes as the values for each file type.
+
+For example, to configure the `"v1"` group with custom path resolver classes for models and controllers, update your configuration like this:
+```php
+'generator_path_groups' => [
+    // ...other groups...
+    'v1' => [
+        'model' => App\CustomGroups\GroupV1\V1ModelPathResolver::class,
+        'controller' => App\CustomGroups\GroupV1\V1ControllerPathResolver::class,
+        // Add path resolver classes for other file types here
+    ],
+],
+```
+### Step 3: Generate Files for the New Group
+
+Now that you've defined the group, configured the path resolver classes, and updated the configuration, you can generate API-related files for the new group using the `--group` option.
+
+For example, to generate files for the "v1" group:
+```
+php artisan api:generate ModelName --all --group=v1
+```
+The API Generator will use the specified group's path resolver classes to organize the generated files according to the custom folder structure and namespace you defined for each file type.
+
+Customizing file locations within a group provides flexibility in organizing your API codebase to meet specific project requirements. You can create and configure multiple groups, each with its own set of custom file locations, to maintain a modular and structured API implementation.
+
 ## Conclusion:
 The API Generator feature offers a streamlined and convenient way to generate essential API-related files for your models. Whether you're working with default options or customizing the generation process, this tool enables you to quickly set up controllers, resources, requests, and more. Experiment with the customization options to efficiently create API components that align with your project's architecture and requirements.
 
