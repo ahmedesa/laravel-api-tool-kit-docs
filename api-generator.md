@@ -215,11 +215,6 @@ In this example, we've specified custom folder paths, file names (you can use "{
 {: .note }
 When creating custom groups, it's essential to provide file info for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
 
-### Step 2: Configure the Generator for the New Group
-In your `config/api-tool-kit.php` configuration file, define the path resolver classes for each file type within the new group under the "generator_path_groups" section. Use the group name as the key and the path resolver classes as the values for each file type.
-
-For example, to configure the `"v1"` group with custom path resolver classes for models and controllers, update your configuration like this:
-
 ### Step 2: Generate Files for the New Group
 
 Now that you've defined the group, configured the path resolver classes, and updated the configuration, you can generate API-related files for the new group using the `--group` option.
