@@ -185,79 +185,42 @@ Here's how to create a new group with custom file locations:
 
 ### Step 1: Configure Custom File Locations
 
-To customize the file locations within your group, you need to create a path resolver class for each file type you want to customize (e.g., model, controller, factory). Each path resolver class should implement the `HasClassAndNamespace` interface and define the `folderPath()`, `fileName()`, and `getNameSpace()` methods.
+To customize the file locations within your group, you can now specify them directly in the configuration file. No need to create path resolver classes anymore.
 
-Here's an example of creating custom path resolver classes for a "v1" group:
+In your `config/api-tool-kit.php` configuration file, define the custom file locations for each file type within the new group under the “generator_path_groups” section. Use the group name as the key and provide the folder path, file name, and namespace for each file type.
 
-Resource Path Resolver:
+For example, to configure the "v1" group with custom file locations for models and controllers, update your configuration like this:
 
 ```php
-namespace App\CustomGroups\V1;
-
-use Essa\APIToolKit\Generator\Contracts\HasClassAndNamespace;
-
-class V1ResourcePathResolver implements HasClassAndNamespace
-{
-    public function folderPath(): string
-    {
-        return app_path("Http/Resources/v1/{$this->model}");
-    }
-
-    public function fileName(): string
-    {
-        return "{$this->model}Resource.php";
-    }
-
-    public function getNameSpace(): string
-    {
-        return "App\Http\Resources\v1\\{$this->model}";
-    }
-}
+    'generator_path_groups' => [
+        // ...other groups...
+        'v1' => [
+            GeneratorFilesType::MODEL => [
+                'folder_path' => app_path('Models'),
+                'file_name' => '{ModelName}.php',
+                'namespace' => 'App\Models',
+            ],
+            GeneratorFilesType::CONTROLLER => [
+                'folder_path' => app_path('Http/Controllers/API/V1'),
+                'file_name' => '{ModelName}Controller.php',
+                'namespace' => 'App\Http\Controllers\API\V1',
+            ],
+            // Add custom file locations for all other file types here
+        ],
+    ],
 ```
-Controller Path Resolver:
-```php
-namespace App\CustomGroups\v1;
 
-use Essa\APIToolKit\Generator\Contracts\HasClassAndNamespace;
-
-class V1ControllerPathResolver implements HasClassAndNamespace
-{
-    public function folderPath(): string
-    {
-        return app_path('CustomGroups/v1/Controllers');
-    }
-
-    public function fileName(): string
-    {
-        return "{$this->model}Controller.php";
-    }
-
-    public function getNameSpace(): string
-    {
-        return 'App\CustomGroups\v1\Controllers';
-    }
-}
-```
-You can create similar path resolver classes for other file types such as factories, requests, resources, and more, as needed.
+In this example, we've specified custom folder paths, file names (you can use "{model}" as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the "v1" group.
 
 {: .note }
-When creating custom groups, it's essential to provide path resolver classes for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
+When creating custom groups, it's essential to provide file info for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
 
 ### Step 2: Configure the Generator for the New Group
 In your `config/api-tool-kit.php` configuration file, define the path resolver classes for each file type within the new group under the "generator_path_groups" section. Use the group name as the key and the path resolver classes as the values for each file type.
 
 For example, to configure the `"v1"` group with custom path resolver classes for models and controllers, update your configuration like this:
-```php
-'generator_path_groups' => [
-    // ...other groups...
-    'v1' => [
-        'model' => App\CustomGroups\v1\V1ResourcePathResolver::class,
-        'resource' => App\CustomGroups\v1\V1ControllerPathResolver::class,
-        // Add path resolver classes for other file types here
-    ],
-],
-```
-### Step 3: Generate Files for the New Group
+
+### Step 2: Generate Files for the New Group
 
 Now that you've defined the group, configured the path resolver classes, and updated the configuration, you can generate API-related files for the new group using the `--group` option.
 
