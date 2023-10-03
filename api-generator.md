@@ -210,7 +210,7 @@ For example, to configure the "v1" group with custom file locations for models a
     ],
 ```
 
-In this example, we've specified custom folder paths, file names (you can use "{model}" as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the "v1" group.
+In this example, we've specified custom folder paths, file names (you can use "{ModelName}" as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the "v1" group.
 
 {: .note }
 When creating custom groups, it's essential to provide file info for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
