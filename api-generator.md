@@ -187,12 +187,12 @@ Here's how to create a new group with custom file locations:
 
 To customize the file locations within your group, you can now specify them directly in the configuration file. No need to create path resolver classes anymore.
 
-In your `config/api-tool-kit.php` configuration file, define the custom file locations for each file type within the new group under the “generator_path_groups” section. Use the group name as the key and provide the folder path, file name, and namespace for each file type.
+In your `config/api-tool-kit.php` configuration file, define the custom file locations for each file type within the new group under the “groups_files_paths” section. Use the group name as the key and provide the folder path, file name, and namespace for each file type.
 
-For example, to configure the "v1" group with custom file locations for models and controllers, update your configuration like this:
+For example, to configure the “v1” group with custom file locations for models, controllers, and set a base URL prefix, update your configuration like this:
 
 ```php
-    'generator_path_groups' => [
+    'groups_files_paths' => [
         // ...other groups...
         'v1' => [
             GeneratorFilesType::MODEL => [
@@ -208,9 +208,13 @@ For example, to configure the "v1" group with custom file locations for models a
             // Add custom file locations for all other file types here
         ],
     ],
+
+    'groups_url_prefixes' => [
+        'v1' => '/api/v1',
+],
 ```
 
-In this example, we've specified custom folder paths, file names (you can use "{ModelName}" as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the "v1" group.
+In this example, we’ve specified custom folder paths, file names (you can use “{ModelName}” as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the “v1” group. Additionally, we've set the base URL prefix for the 'v1' group.
 
 {: .note }
 When creating custom groups, it's essential to provide file info for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group.
