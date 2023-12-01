@@ -42,6 +42,7 @@ The response structure will be:
 
 ```json
 {
+    "status": 200,
     "message": "Car created successfully",
     "data": // Your car data here
 }
