@@ -22,6 +22,7 @@ php artisan vendor:publish --provider="Essa\APIToolKit\APIToolKitServiceProvider
 This command will copy the configuration files into your project's config directory, allowing you to modify settings as needed.
 
 ### Standardize Error Responses
+#### Before Laravel 11
 For consistent error responses, extend your application's exception handler from the `APIHandler` class provided by the package. In your `Handler.php` file located in the `app/Exceptions` directory, update it like so:
 
 ```php
@@ -33,6 +34,26 @@ class Handler extends APIHandler
 {
 }
 
+```
+#### Laravel 11 
+Starting from Laravel 11, the approach to handling exceptions has changed. Instead of extending the `Handler` class, you'll need to bind the exception handler in your `AppServiceProvider`. Here's how you can do it:
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Essa\APIToolKit\Exceptions\Handler;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->bind(ExceptionHandler::class, Handler::class); // add this line 
+    }
+}
 ```
 This integration ensures that error responses adhere to the standardized format provided by the API toolkit.
 
