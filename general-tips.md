@@ -55,7 +55,7 @@ This approach ensures consistent error handling and standardized response format
 
 ## Optimizing Search Operations in Your Database
 
-When implementing search functionality in your API with the [Query Filters](https://laravelapitoolkit.com/filters), iit's essential to consider its potential impact on your database performance. The typical %like% search, as demonstrated in the example, can be resource-intensive and may not be suitable for large-scale projects or databases with extensive data. Here are some important considerations and alternatives:
+When implementing search functionality in your API with the [Query Filters](https://laravelapitoolkit.com/filters), it's essential to consider its potential impact on your database performance. The typical %like% search, as demonstrated in the example, can be resource-intensive and may not be suitable for large-scale projects or databases with extensive data. Here are some important considerations and alternatives:
 #### Database Performance
 Query filters use the %like% approach, which can lead to slow query execution, especially when dealing with large datasets. It performs a full-text search across columns, making it less efficient for high-volume applications.
 #### Alternatives
