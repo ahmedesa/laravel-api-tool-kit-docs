@@ -2,8 +2,9 @@
 layout: default
 title: Api Generator
 nav_order: 5
+parent: V2 (Legacy)
 has_children: false
-permalink: api-generator
+permalink: v2/api-generator
 ---
 # API Generator
 {: .no_toc }

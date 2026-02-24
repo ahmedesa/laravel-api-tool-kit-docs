@@ -2,8 +2,9 @@
 layout: default
 title: Enum
 nav_order: 8
+parent: V2 (Legacy)
 has_children: false
-permalink: enum
+permalink: v2/enum
 ---
 # Enum
 {: .no_toc }

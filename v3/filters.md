@@ -2,8 +2,9 @@
 layout: default
 title: Filters
 nav_order: 4
+parent: V3 (Latest)
 has_children: false
-permalink: filters
+permalink: v3/filters
 ---
 # Filters
 {: .no_toc }

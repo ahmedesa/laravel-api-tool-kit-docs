@@ -2,8 +2,9 @@
 layout: default
 title: General tips
 nav_order: 9
+parent: V2 (Legacy)
 has_children: false
-permalink: general-tips
+permalink: v2/general-tips
 ---
 # General Tips
 {: .no_toc }

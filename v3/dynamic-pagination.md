@@ -2,8 +2,9 @@
 layout: default
 title: Dynamic Pagination
 nav_order: 3
+parent: V3 (Latest)
 has_children: false
-permalink: dynamic-pagination
+permalink: v3/dynamic-pagination
 ---
 # Dynamic Pagination
 {: .no_toc }

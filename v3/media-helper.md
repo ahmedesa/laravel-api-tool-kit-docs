@@ -2,8 +2,9 @@
 layout: default
 title: Media Helper
 nav_order: 7
+parent: V3 (Latest)
 has_children: false
-permalink: media-helper
+permalink: v3/media-helper
 ---
 
 # Media Helper

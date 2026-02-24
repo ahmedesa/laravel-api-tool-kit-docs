@@ -7,7 +7,9 @@ favicon_ico: "favicon.ico"
 url: https://laravelapitoolkit.com
 
 aux_links:
-  Github Repository: https://github.com/ahmedesa/laravel-api-tool-kit
+  "V3 Documentation (Latest)": "/v3/"
+  "V2 Documentation": "/v2/"
+  "Github Repository": "https://github.com/ahmedesa/laravel-api-tool-kit"
 
 remote_theme: just-the-docs/just-the-docs
 

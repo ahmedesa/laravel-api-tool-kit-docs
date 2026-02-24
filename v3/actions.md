@@ -2,8 +2,9 @@
 layout: default
 title: Actions
 nav_order: 6
+parent: V3 (Latest)
 has_children: false
-permalink: actions
+permalink: v3/actions
 ---
 
 # Actions

@@ -1,0 +1,115 @@
+---
+layout: default
+title: API Response
+nav_order: 2
+parent: V2 (Legacy)
+has_children: false
+permalink: v2/api-response
+---
+
+# API Response
+{: .no_toc }
+
+The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+### How to use
+To take advantage of the API Response functionality, include the `ApiResponse` trait in your class:
+```php
+use Essa\APIToolKit\Api\ApiResponse;
+
+class YourController extends Controller
+{
+    use ApiResponse;
+
+    // Your methods here
+}
+```
+### Success Response
+The `responseSuccess` method generates a successful JSON response with a specified message and data:
+```php
+$car = // Your car data here
+
+return $this->responseSuccess('Car created successfully', $car);
+```
+The response structure will be:
+
+```json
+{
+    "status": 200,
+    "message": "Car created successfully",
+    "data": // Your car data here
+}
+```
+### Error Response
+The APIError method constructs an error response with a given status code, title, and optional details. You can use other provided error response methods like `responseNotFound`, `responseUnAuthorized`, and more to generate specific error responses.
+```php
+return $this->responseUnAuthenticated('Unauthenticated.', 'Unauthorized');
+```
+The error response structure will be:
+```json
+{
+    "errors": [
+        {
+            "status": 401,
+            "title": "Unauthorized",
+            "detail": "Unauthenticated."
+        }
+    ]
+}
+```
+### Available Methods
+Here is a list of available methods for generating standardized responses:
+
+
+| Function                                                        | Status Code
+|:----------------------------------------------------------------|:------------------
+| `responseSuccess($message, $data)`                              | 200
+| `responseCreated($message, $data)`                              | 201
+| `responseAccepted($message, $data)`                             | 202 <span class="label label-green">New in v2.3</span>
+| `responseDeleted()`                                             | 204
+| `responseNoContent()`                                           | 204 <span class="label label-green">New in v2.3</span>
+| `responseNotFound($errorDetails, $errorTitle)`                  | 404
+| `responseBadRequest($errorDetails, $errorTitle)`                | 400
+| `responseUnAuthorized($errorDetails, $errorTitle)`              | 403
+| `responseConflictError($errorDetails, $errorTitle)`             | 409
+| `responseUnprocessable($errorDetails, $errorTitle)`             | 422
+| `responseUnAuthenticated($errorDetails, $errorTitle)`           | 401
+| `responseWithCustomError($errorTitle, $errorDetails, $statusCode)` | -
+
+### Accepted Response <span class="label label-green">New in v2.3</span>
+The `responseAccepted` method generates an HTTP 202 response, useful for async operations:
+```php
+return $this->responseAccepted('Your request is being processed', ['job_id' => 'abc-123']);
+```
+The response structure will be:
+```json
+{
+    "status": 202,
+    "message": "Your request is being processed",
+    "data": {
+        "job_id": "abc-123"
+    }
+}
+```
+
+```
+
+### No Content Response <span class="label label-green">New in v2.3</span>
+The `responseNoContent` method generates a generic HTTP 204 response (similar to `responseDeleted` but for any use case):
+```php
+return $this->responseNoContent();
+```
+
+### Conclusion:
+The API Response feature simplifies the process of generating standardized responses in your API. By including the `ApiResponse` trait and utilizing the provided methods, you can ensure consistent and clear interactions between your API and clients, enhancing the user experience and overall code maintainability.
+
+
+----

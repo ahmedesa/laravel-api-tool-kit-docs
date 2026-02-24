@@ -2,8 +2,9 @@
 layout: default
 title: API Response
 nav_order: 2
+parent: V3 (Latest)
 has_children: false
-permalink: api-response
+permalink: v3/api-response
 ---
 
 # API Response
