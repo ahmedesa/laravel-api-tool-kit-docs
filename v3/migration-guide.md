@@ -81,19 +81,13 @@ use Essa\APIToolKit\APIToolKit;
 
 ---
 
-## 5. Domain-Driven Design (DDD) Support
-
-The `--domain` option and all built-in DDD-related features have been **removed**. The toolkit now focuses exclusively on standard Laravel conventions.
-
----
-
-## 6. ConsumesExternalServices
+## 5. ConsumesExternalServices
 
 The trait now uses the Laravel `Http` facade. If you were overriding internal Guzzle methods, you may need to refactor your implementation to use the `Http` facade's hooks or configuration options.
 
 ---
 
-## 7. Configuration Update
+## 6. Configuration Update
 
 A new `max_pagination_limit` option is available. Publish the updated config to use it:
 
