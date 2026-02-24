@@ -52,6 +52,18 @@ The default pagination value (number of items per page) can be configured in the
     'default_pagination_number' => 20,
 ]
 ```
+
+### Maximum Pagination Limit
+
+To prevent users from requesting excessively large datasets, you can set a `max_pagination_limit` in the `config/api-tool-kit` file. If a request's `per_page` value exceeds this limit, it will be automatically capped.
+
+```php
+[
+    'max_pagination_limit' => 100,
+]
+```
+
+In this example, even if a user requests `per_page=500`, the toolkit will only return 100 items per page.
 ### Conclusion:
 
 Dynamic Pagination empowers you to control the presentation of results in your API responses. Whether you want to stick with defaults or customize the pagination behavior, this feature gives you the flexibility to adapt to different scenarios and user requirements seamlessly. Use the provided methods and configuration settings to implement efficient and user-friendly pagination in your application.
