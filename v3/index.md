@@ -6,6 +6,9 @@ has_children: true
 permalink: v3/
 ---
 
+> [!IMPORTANT]
+> **Upgrading from v2.x?** Please read the [Migration Guide](migration-guide) for breaking changes and upgrade steps.
+
 ## **Installation Guide**
 To begin using the package, follow these steps to install it using Composer:
 
