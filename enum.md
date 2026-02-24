@@ -18,10 +18,7 @@ Enums provide a structured and consistent way to manage and reference predefined
 
 ---
 
-### Native PHP Enums (Recommended)
-{: .label .label-green }
-New in v2.1
-{: .label .label-green }
+### Native PHP Enums (Recommended) [New in v2.3]{: .label .label-green }
 
 Since PHP 8.1, you can use native backed enums with the `EnumHelpers` trait for a type-safe, modern approach:
 
