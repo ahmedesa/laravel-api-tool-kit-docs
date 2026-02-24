@@ -118,7 +118,7 @@ enum UserTypes: string
 ### Legacy Enum Class (Deprecated)
 
 {: .warning }
-The class-based `Enum` is deprecated since v2.1 and will be removed in v3.0. Please migrate to native PHP enums with the `EnumHelpers` trait above.
+The class-based `Enum` is deprecated since v2.1 and will be removed in 3.0.0. Please migrate to native PHP enums with the `EnumHelpers` trait above.
 
 #### Generating a Legacy Enum Class
 ```
