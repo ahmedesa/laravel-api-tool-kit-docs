@@ -22,8 +22,33 @@ php artisan vendor:publish --provider="Essa\APIToolKit\APIToolKitServiceProvider
 This command will copy the configuration files into your project's config directory, allowing you to modify settings as needed.
 
 ### Standardize Error Responses
-- ### Before Laravel 11
-For consistent error responses, extend your application's exception handler from the `APIHandler` class provided by the package. In your `Handler.php` file located in the `app/Exceptions` directory, update it like so:
+
+- ### Laravel 11+ (Recommended)
+{: .label .label-green }
+New in v2.1
+{: .label .label-green }
+
+Use `APIToolKit::registerExceptionRenderers()` in your `bootstrap/app.php`:
+
+```php
+use Essa\APIToolKit\APIToolKit;
+
+return Application::configure(basePath: dirname(__DIR__))
+    ->withExceptions(function (Exceptions $exceptions) {
+        APIToolKit::registerExceptionRenderers($exceptions);
+    })
+    // ... other configuration
+    ->create();
+```
+
+This registers all exception renderers using Laravel 11+'s closure-based approach, converting exceptions into standardized JSON error responses.
+
+- ### Before Laravel 11 (Legacy)
+
+{: .warning }
+The `Handler` class is deprecated since v2.1 and will be removed in v3.0. If you're on Laravel 11+, use the approach above.
+
+For older Laravel versions, extend your exception handler from the `APIHandler` class:
 
 ```php
 namespace App\Exceptions;
@@ -33,29 +58,21 @@ use Essa\APIToolKit\Exceptions\Handler as APIHandler;
 class Handler extends APIHandler
 {
 }
-
 ```
-- ### Laravel 11 
-Starting from Laravel 11, the approach to handling exceptions has changed. Instead of extending the `Handler` class, you'll need to bind the exception handler in your `AppServiceProvider`. Here's how you can do it:
+
+Or for Laravel 11 without the new approach, bind in `AppServiceProvider`:
 
 ```php
-<?php
-
-namespace App\Providers;
-
 use Essa\APIToolKit\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+public function register(): void
 {
-    public function register(): void
-    {
-        $this->app->bind(ExceptionHandler::class, Handler::class); // add this line 
-    }
+    $this->app->bind(ExceptionHandler::class, Handler::class);
 }
 ```
-This integration ensures that error responses adhere to the standardized format provided by the API toolkit.
+
+Both legacy approaches ensure that error responses adhere to the standardized format provided by the API toolkit.
 
 ### Utilize the API Response Trait in your controllers
 

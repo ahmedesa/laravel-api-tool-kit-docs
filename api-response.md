@@ -68,18 +68,42 @@ The error response structure will be:
 Here is a list of available methods for generating standardized responses:
 
 
-| Function                                    | Status Code          
-|:--------------------------------------------|:------------------
-| responseSuccess($message , $data)                                | 200
-| responseCreated($message,$data)                                  | 201 
-| responseDeleted()                                                | 204
-|responseNotFound($errorDetails,$errorTitle)                       | 404
-|responseBadRequest($errorDetails,$errorTitle)                     | 400
-|responseUnAuthorized($errorDetails,$errorTitle)                   | 403
-|responseConflictError($errorDetails,$errorTitle)                  | 409
-|responseUnprocessable($errorDetails,$errorTitle)                  | 422
-|responseUnAuthenticated($errorDetails,$errorTitle)                | 401
-|responseWithCustomError($errorTitle, $errorDetails, $statusCode)  | -
+| Function                                                        | Status Code
+|:----------------------------------------------------------------|:------------------
+| `responseSuccess($message, $data)`                              | 200
+| `responseCreated($message, $data)`                              | 201
+| `responseAccepted($message, $data)`                             | 202 {: .label .label-green } New in v2.1
+| `responseDeleted()`                                             | 204
+| `responseNoContent()`                                           | 204 {: .label .label-green } New in v2.1
+| `responseNotFound($errorDetails, $errorTitle)`                  | 404
+| `responseBadRequest($errorDetails, $errorTitle)`                | 400
+| `responseUnAuthorized($errorDetails, $errorTitle)`              | 403
+| `responseConflictError($errorDetails, $errorTitle)`             | 409
+| `responseUnprocessable($errorDetails, $errorTitle)`             | 422
+| `responseUnAuthenticated($errorDetails, $errorTitle)`           | 401
+| `responseWithCustomError($errorTitle, $errorDetails, $statusCode)` | -
+
+### Accepted Response (New in v2.1)
+The `responseAccepted` method generates an HTTP 202 response, useful for async operations:
+```php
+return $this->responseAccepted('Your request is being processed', ['job_id' => 'abc-123']);
+```
+The response structure will be:
+```json
+{
+    "status": 202,
+    "message": "Your request is being processed",
+    "data": {
+        "job_id": "abc-123"
+    }
+}
+```
+
+### No Content Response (New in v2.1)
+The `responseNoContent` method generates a generic HTTP 204 response (similar to `responseDeleted` but for any use case):
+```php
+return $this->responseNoContent();
+```
 
 ### Conclusion:
 The API Response feature simplifies the process of generating standardized responses in your API. By including the `ApiResponse` trait and utilizing the provided methods, you can ensure consistent and clear interactions between your API and clients, enhancing the user experience and overall code maintainability.

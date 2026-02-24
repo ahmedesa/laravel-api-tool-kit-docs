@@ -8,7 +8,7 @@ permalink: enum
 # Enum
 {: .no_toc }
 
-The Enum class provides a convenient way to work with enumerations, allowing you to define a set of named constants that represent distinct values. By using enums, you can eliminate hardcoded values in your code and ensure consistency and maintainability.
+Enums provide a structured and consistent way to manage and reference predefined values in your application. The toolkit offers two approaches: **native PHP enums** (recommended) and a legacy class-based approach.
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -18,14 +18,116 @@ The Enum class provides a convenient way to work with enumerations, allowing you
 
 ---
 
-### Generating an Enum Class
-To create a new enum class, you can use the make:enum Artisan command:
+### Native PHP Enums (Recommended)
+{: .label .label-green }
+New in v2.1
+{: .label .label-green }
+
+Since PHP 8.1, you can use native backed enums with the `EnumHelpers` trait for a type-safe, modern approach:
+
+```php
+namespace App\Enums;
+
+use Essa\APIToolKit\Enum\EnumHelpers;
+
+enum UserTypes: string
+{
+    use EnumHelpers;
+
+    case Admin = 'admin';
+    case Student = 'student';
+}
+```
+
+### Available Methods
+
+The `EnumHelpers` trait provides the following methods:
+
+| Method            | Description                                          | Example Output                                         |
+|:------------------|:-----------------------------------------------------|:-------------------------------------------------------|
+| `values()`        | Get an array of all enum values                      | `['admin', 'student']`                                 |
+| `names()`         | Get an array of all enum case names                  | `['Admin', 'Student']`                                 |
+| `toArray()`       | Get an associative array of names to values           | `['Admin' => 'admin', 'Student' => 'student']`         |
+| `isValid($value)` | Check if a value is valid for this enum              | `true` or `false`                                      |
+| `fromValue($value)` | Get the enum case for a value, or null             | `UserTypes::Admin` or `null`                           |
+
+### Example
+
+```php
+use App\Enums\UserTypes;
+
+// Check if a value is a valid enum value
+$isStudent = UserTypes::isValid('student'); // Returns true
+$isUnknown = UserTypes::isValid('unknown'); // Returns false
+
+// Get an array of all enum values
+$allUserTypes = UserTypes::values(); // Returns ['admin', 'student']
+
+// Get all case names
+$names = UserTypes::names(); // Returns ['Admin', 'Student']
+
+// Get an associative array
+$map = UserTypes::toArray(); // Returns ['Admin' => 'admin', 'Student' => 'student']
+
+// Get enum case from value
+$type = UserTypes::fromValue('admin'); // Returns UserTypes::Admin
+$invalid = UserTypes::fromValue('unknown'); // Returns null
+
+// Use in match expressions (native PHP feature)
+$label = match($type) {
+    UserTypes::Admin => 'Administrator',
+    UserTypes::Student => 'Student User',
+};
+
+// Use in type hints (native PHP feature)
+function assignRole(UserTypes $type): void {
+    // $type is guaranteed to be a valid UserTypes value
+}
+```
+
+### Migrating from Legacy Enums
+
+If you're currently using the class-based `Enum`, migrating to native enums is straightforward:
+
+```php
+// Before (deprecated):
+class UserTypes extends Enum
+{
+    public const ADMIN = 'admin';
+    public const STUDENT = 'student';
+}
+
+// After (recommended):
+enum UserTypes: string
+{
+    use EnumHelpers;
+
+    case Admin = 'admin';
+    case Student = 'student';
+}
+```
+
+**Key differences:**
+- `getAll()` → `values()`
+- `getConst()` → `names()`
+- `toArray()` → `toArray()` (same name)
+- `isValid($value)` → `isValid($value)` (same name)
+- `getValue($const)` → `fromValue($value)`
+- Constants use `case` keyword instead of `const`
+
+---
+
+### Legacy Enum Class (Deprecated)
+
+{: .warning }
+The class-based `Enum` is deprecated since v2.1 and will be removed in v3.0. Please migrate to native PHP enums with the `EnumHelpers` trait above.
+
+#### Generating a Legacy Enum Class
 ```
 php artisan make:enum UserTypes
 ```
-This command generates an enum class named UserTypes in the App\Enums namespace. You can replace UserTypes with your desired enum name.
 
-### Define enum values
+#### Define enum values
 ```php
 namespace App\Enums;
 
@@ -35,28 +137,8 @@ class UserTypes extends Enum
     public const STUDENT = 'student';
 }
 ```
-The Enum class provides several methods to work with enums:
-- `getAll()` Get an array containing all enum values.
-- `isValid($value)` Check if a given value exists as a constant in the enum.
-- `toArray()` Get an associative array containing all enum constants as keys and their respective values.
 
-### Example
-Here's an example of using the UserTypes enum:
-
-```php
-use App\Enums\UserTypes;
-
-// Check if a value is a valid enum value
-$isStudent = UserTypes::isValid('student'); // Returns true
-
-// Get an array of all enum values
-$allUserTypes = UserTypes::getAll(); // Returns ['admin', 'student']
-
-// Get an array of enum constants
-$enumConstants = UserTypes::toArray(); // Returns ['ADMIN' => 'admin', 'STUDENT' => 'student']
-```
-### Conclusion:
-Enums provide a structured and consistent way to manage and reference predefined values in your application. By using the Enum class, you can create organized and maintainable code that avoids hardcoded values and promotes readability and consistency throughout your project.
+Legacy methods: `getAll()`, `isValid($value)`, `toArray()`, `getConst()`, `isValidConst($value)`, `getValue($const)`.
 
 ----
 
