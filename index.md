@@ -40,37 +40,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
 This registers all exception renderers using Laravel 11+'s closure-based approach, converting exceptions into standardized JSON error responses.
 
-#### Before Laravel 11 (Legacy) <span class="label label-yellow">Deprecated</span>
-
-{: .warning }
-The `Handler` class is deprecated since v2.3 and will be removed in v3.0. If you're on Laravel 11+, use the approach above.
-
-For older Laravel versions, extend your exception handler from the `APIHandler` class:
-
-```php
-namespace App\Exceptions;
-
-use Essa\APIToolKit\Exceptions\Handler as APIHandler;
-
-class Handler extends APIHandler
-{
-}
-```
-
-Or for Laravel 11 without the new approach, bind in `AppServiceProvider`:
-
-```php
-use Essa\APIToolKit\Exceptions\Handler;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-
-public function register(): void
-{
-    $this->app->bind(ExceptionHandler::class, Handler::class);
-}
-```
-
-Both legacy approaches ensure that error responses adhere to the standardized format provided by the API toolkit.
-
 ### Utilize the API Response Trait in your controllers
 
 ```php
