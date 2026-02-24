@@ -72,9 +72,9 @@ Here is a list of available methods for generating standardized responses:
 |:----------------------------------------------------------------|:------------------
 | `responseSuccess($message, $data)`                              | 200
 | `responseCreated($message, $data)`                              | 201
-| `responseAccepted($message, $data)`                             | 202 [New in v2.3]{: .label .label-green }
+| `responseAccepted($message, $data)`                             | 202 <span class="label label-green">New in v2.3</span>
 | `responseDeleted()`                                             | 204
-| `responseNoContent()`                                           | 204 [New in v2.3]{: .label .label-green }
+| `responseNoContent()`                                           | 204 <span class="label label-green">New in v2.3</span>
 | `responseNotFound($errorDetails, $errorTitle)`                  | 404
 | `responseBadRequest($errorDetails, $errorTitle)`                | 400
 | `responseUnAuthorized($errorDetails, $errorTitle)`              | 403
@@ -83,7 +83,7 @@ Here is a list of available methods for generating standardized responses:
 | `responseUnAuthenticated($errorDetails, $errorTitle)`           | 401
 | `responseWithCustomError($errorTitle, $errorDetails, $statusCode)` | -
 
-### Accepted Response [New in v2.3]{: .label .label-green }
+### Accepted Response <span class="label label-green">New in v2.3</span>
 The `responseAccepted` method generates an HTTP 202 response, useful for async operations:
 ```php
 return $this->responseAccepted('Your request is being processed', ['job_id' => 'abc-123']);
@@ -101,7 +101,7 @@ The response structure will be:
 
 ```
 
-### No Content Response [New in v2.3]{: .label .label-green }
+### No Content Response <span class="label label-green">New in v2.3</span>
 The `responseNoContent` method generates a generic HTTP 204 response (similar to `responseDeleted` but for any use case):
 ```php
 return $this->responseNoContent();

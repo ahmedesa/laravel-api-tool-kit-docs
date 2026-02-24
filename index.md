@@ -23,7 +23,7 @@ This command will copy the configuration files into your project's config direct
 
 ### Standardize Error Responses
 
-#### Laravel 11+ (Recommended) [New in v2.3]{: .label .label-green }
+#### Laravel 11+ (Recommended) <span class="label label-green">New in v2.3</span>
 
 Use `APIToolKit::registerExceptionRenderers()` in your `bootstrap/app.php`:
 
@@ -40,7 +40,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
 This registers all exception renderers using Laravel 11+'s closure-based approach, converting exceptions into standardized JSON error responses.
 
-#### Before Laravel 11 (Legacy) [Deprecated]{: .label .label-yellow }
+#### Before Laravel 11 (Legacy) <span class="label label-yellow">Deprecated</span>
 
 {: .warning }
 The `Handler` class is deprecated since v2.3 and will be removed in v3.0. If you're on Laravel 11+, use the approach above.
