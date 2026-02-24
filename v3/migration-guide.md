@@ -83,9 +83,7 @@ use Essa\APIToolKit\APIToolKit;
 
 ## 5. Domain-Driven Design (DDD) Support
 
-The `--domain` option and custom domain paths have been removed from the `api:generate` command to focus on standard Laravel conventions.
-
-**Action Required:** If you were using the DDD features, you should move your generated files to standard Laravel directories (e.g., `app/Models`, `app/Http/Controllers`) or configure your custom paths in `config/api-tool-kit.php` using the `groups_files_paths` setting.
+The `--domain` option and all built-in DDD-related features have been **removed**. The toolkit now focuses exclusively on standard Laravel conventions.
 
 ---
 
