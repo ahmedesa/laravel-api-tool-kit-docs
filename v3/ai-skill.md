@@ -1,6 +1,6 @@
 # **AI Architectural Skill**
 
-The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 19 rule files and 4 guided workflows that teach your AI coding assistant to follow the same standards you do.
+The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 19 rule files and 5 guided workflows that teach your AI coding assistant to follow the same standards you do.
 
 When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub Copilot**, or **Antigravity**), these rules ensure every generated file matches your architecture from the first draft instead of requiring manual corrections.
 
@@ -48,7 +48,7 @@ Compiles all rules into `.agents/instructions.md` and copies the workflows to `.
 
 | Rule file | Covers |
 |-----------|--------|
-| `code-quality` | `strict_types`, types, naming, no hardcoded values, DI rules, CacheKeys pattern |
+| `code-quality` | `strict_types`, types, naming, no hardcoded values, dependency injection, CacheKeys pattern |
 | `events` | Event classes, queued listeners, dispatch timing |
 | `authorization` | Policies, `$this->authorize()`, never inline auth |
 | `exceptions` | Route model binding, `UnprocessableEntityHttpException`, no empty catch |
@@ -81,6 +81,7 @@ Step-by-step guides the AI follows for common tasks:
 
 | Workflow | What it does |
 |----------|-------------|
+| `scan-project` | Performs a **Deep Project Analysis** (structure, services, core abstractions, feature flags, base patterns) and populates Project Defaults |
 | `new-endpoint` | Full CRUD from scratch — Model → Migration → Filter → Requests → Resource → Action → Controller → Route → Test |
 | `add-filter` | Add filtering and sorting to an existing model's list endpoint |
 | `code-review` | 17-section checklist covering every layer of the stack |

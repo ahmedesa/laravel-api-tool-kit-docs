@@ -10,12 +10,20 @@ composer require essa/api-tool-kit
 ```
 This command will install the package in your Laravel project.
 
-### Install AI Architectural Skill (Optional)
-To provide your AI coding assistant with our professional standards, run:
+### Install AI Architectural Skill <span class="label label-green">New in v3.1</span>
+
+Give your AI coding assistant a shared understanding of your architecture. One command installs **19 rule files** and **4 guided workflows** — every AI-generated file will match your standards from the first draft.
+
 ```bash
 php artisan api-skill:install
 ```
-For more details, see the [AI Architectural Skill](ai-skill) section.
+
+The installer asks which AI tool you use (Claude Code, Cursor, GitHub Copilot, or Antigravity) and copies the skill to the correct location automatically.
+
+> [!TIP]
+> The AI Skill is the recommended way to generate code for projects using this package. It replaces the need for scaffolding generators by teaching your AI assistant the full architecture.
+
+For the complete list of rules, workflows, and customization options, see the [AI Architectural Skill](ai-skill) section.
 
 ### Publish Configuration Files
 To customize the behavior of the package, you can publish the configuration files. Run the following command:
@@ -55,4 +63,4 @@ class Controller extends BaseController
     use ApiResponse;
 }
 ```
-For more details, refer to [API response](https://ahmedesa.github.io/laravel-api-tool-kit-docs/api-response)
+For more details, refer to [API response](api-response)
