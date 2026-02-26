@@ -1,6 +1,6 @@
 # **AI Architectural Skill**
 
-The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 19 rule files and 5 guided workflows that teach your AI coding assistant to follow the same standards you do.
+The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 20 rule files and 5 guided workflows that teach your AI coding assistant to follow the same standards you do.
 
 When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub Copilot**, or **Antigravity**), these rules ensure every generated file matches your architecture from the first draft instead of requiring manual corrections.
 
@@ -52,7 +52,8 @@ Compiles all rules into `.agents/instructions.md` and copies the workflows to `.
 | `events` | Event classes, queued listeners, dispatch timing |
 | `authorization` | Policies, `$this->authorize()`, never inline auth |
 | `exceptions` | Route model binding, `UnprocessableEntityHttpException`, no empty catch |
-| `testing` | Feature tests, factories, `RefreshDatabase`, failure paths |
+| `testing` | Feature tests, factories, failure paths |
+| `media` | File uploads, deletions, base64 images |
 | `database` | Transactions, bulk ops, eager loading, primary key convention |
 | `services` | External 3rd-party integrations — Interface / Concrete / Mock / ServiceProvider pattern |
 | `anti-patterns` | 26 wrong/correct code pairs covering the most common mistakes |
