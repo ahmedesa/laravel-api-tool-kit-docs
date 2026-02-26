@@ -90,6 +90,19 @@ Step-by-step guides the AI follows for common tasks:
 
 ---
 
+## **Deep Project Scan — The AI's First Task**
+
+When you join a new project or start a fresh session, the first thing you should do is trigger the **Deep Project Scan** workflow. 
+
+**Why it matters:** Standard rules only go so far. A real project has custom services, unique feature flag patterns, and specific base classes. The Deep Project Scan teaches the AI your project's specific "DNA" by scanning:
+
+- **Services & Core**: Discovers your custom abstractions for SMS, Payments, and specialized domain logic.
+- **Pattern DNA**: Finds your `BaseAction`, `BaseRepository`, or global traits like `HasTenant`.
+- **Infrastructure**: Detects your feature flag package (e.g., Pennant), cache key pattern, and custom exception handling.
+- **Auto-Config**: It automatically updates your `SKILL.md` file, ensuring the AI never "invents" a new way to do something you've already solved.
+
+**Trigger Phrases**: "Scan project", "Deep scan", "Learn project conventions"
+
 ## **Project Defaults**
 
 After installing, open the `SKILL.md` file and fill in your project's conventions under **Project Defaults**:

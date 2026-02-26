@@ -6,7 +6,7 @@ The Laravel API Toolkit is a comprehensive suite of tools designed to help you c
 
 ## What's New in V3.1
 
-- 🤖 **AI Architectural Skill** — 19 rule files + 5 workflows that teach your AI coding assistant your architecture. One command install for Claude Code, Cursor, GitHub Copilot, and Antigravity.
+- 🤖 **AI Architectural Skill** — 20 rule files + 5 workflows that teach your AI coding assistant your architecture. One command install for Claude Code, Cursor, GitHub Copilot, and Antigravity.
 
 ## Key Features
 

@@ -12,7 +12,7 @@ This command will install the package in your Laravel project.
 
 ### Install AI Architectural Skill <span class="label label-green">New in v3.1</span>
 
-Give your AI coding assistant a shared understanding of your architecture. One command installs **19 rule files** and **4 guided workflows** — every AI-generated file will match your standards from the first draft.
+Give your AI coding assistant a shared understanding of your architecture. One command installs **20 rule files** and **5 guided workflows** — including a **Deep Project Scan** that discovers your project's unique patterns and abstractions.
 
 ```bash
 php artisan api-skill:install
