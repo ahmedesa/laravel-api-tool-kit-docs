@@ -4,6 +4,9 @@ The Media Helper is a utility class provided by the `Essa\APIToolKit` namespace 
 
 ## Table of contents
 
+> [!TIP]
+> **Using an AI Assistant?** The [AI Architectural Skill](ai-skill) includes a dedicated `media` rule that teaches your assistant to use this `MediaHelper` correctly for all file operations.
+
 ---
 
 ### Uploading a File
