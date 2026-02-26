@@ -1,8 +1,8 @@
 version: 2
 updates:
-  - package-ecosystem: bundler
+  - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
     allow:
       - dependency-type: direct

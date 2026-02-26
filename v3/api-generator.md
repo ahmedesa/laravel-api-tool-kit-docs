@@ -1,21 +1,8 @@
----
-layout: default
-title: Api Generator
-nav_order: 5
-parent: V3 (Latest)
-has_children: false
-permalink: v3/api-generator
----
 # API Generator
-{: .no_toc }
 
 The API Generator simplifies the process of creating API-related files for a model, making it quick and easy to set up the required components. It offers the ability to generate files such as controllers, requests, resources, migrations, factories, seeders, filters, tests, and even API routes.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -217,7 +204,6 @@ For example, to configure the “v1” group with custom file locations for mode
 
 In this example, we’ve specified custom folder paths, file names (you can use “{ModelName}” as a placeholder that gets replaced with the model name), and namespaces for models and controllers within the “v1” group. Additionally, we've set the base URL prefix for the 'v1' group.
 
-{: .note }
 When creating custom groups, it's essential to provide file info for all types within the group, even if you only intend to customize some of them. For types you don't wish to customize, you can use the default classes from the default group. Also, remember to add a route group prefix for each new group under 'groups_url_prefixes' in the configuration. Explore all default values [here](https://github.com/ahmedesa/laravel-api-tool-kit/blob/6f23fe124d1ab8383c93997d082c7658207199c5/config/api-tool-kit.php#L68).
 
 ### Step 2: Generate Files for the New Group

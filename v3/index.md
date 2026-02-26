@@ -1,11 +1,3 @@
----
-layout: default
-title: V3 (Latest)
-nav_order: 1
-has_children: true
-permalink: v3/
----
-
 > [!IMPORTANT]
 > **Upgrading from v2.x?** Please read the [Migration Guide](migration-guide) for breaking changes and upgrade steps.
 

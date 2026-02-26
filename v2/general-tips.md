@@ -1,19 +1,6 @@
----
-layout: default
-title: General tips
-nav_order: 9
-parent: V2 (Legacy)
-has_children: false
-permalink: v2/general-tips
----
 # General Tips
-{: .no_toc }
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 

@@ -1,21 +1,8 @@
----
-layout: default
-title: Migration Guide (v2 to 3.0.0)
-nav_order: 2
-parent: V3 (Latest)
-permalink: v3/migration-guide
----
-
 # Migration Guide: v2.x to 3.0.0
-{: .no_toc }
 
 This guide details the steps required to migrate your application from `essa/api-tool-kit` v2.x to 3.0.0.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 

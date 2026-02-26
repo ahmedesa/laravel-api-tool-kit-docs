@@ -1,10 +1,3 @@
----
-layout: default
-title: AI Architectural Skill
-nav_order: 10
-parent: V3 (Latest)
----
-
 # **AI Architectural Skill**
 
 The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 19 rule files and 4 guided workflows that teach your AI coding assistant to follow the same standards you do.

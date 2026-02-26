@@ -1,22 +1,8 @@
----
-layout: default
-title: Actions
-nav_order: 6
-parent: V3 (Latest)
-has_children: false
-permalink: v3/actions
----
-
 # Actions
-{: .no_toc }
 
 The Actions feature employs the command design pattern to encapsulate business logic within distinct and organized classes. This approach enhances code structure, readability, and maintainability in your Laravel application.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -83,9 +69,7 @@ By using the "Actions" feature, you can achieve the following benefits:
 - **Separation of Concerns** Business logic is separated from controllers and models, promoting a modular architecture.
 - **Reusability** Actions can be reused across different parts of the application, reducing code duplication.
 
-{: .note }
 you can check this article to understand how Laravel’s IoC Container works [here](https://stefan-brankovikj.medium.com/laravels-ioc-container-and-dependency-injection-decoded-4529719c7fa3).
-
 
 ### Conclusion:
 The Actions feature is a valuable tool for structuring and managing business logic within your Laravel application. Whether you're creating complex processes or handling straightforward tasks, this pattern empowers you to create organized, maintainable, and efficient code. Utilize dependency injection and choose the approach that best suits your application's needs to seamlessly integrate actions into your project

@@ -1,21 +1,8 @@
----
-layout: default
-title: Enum
-nav_order: 8
-parent: V3 (Latest)
-has_children: false
-permalink: v3/enum
----
 # Enum
-{: .no_toc }
 
 Enums provide a structured and consistent way to manage and reference predefined values in your application. The toolkit offers two approaches: **native PHP enums** (recommended) and a legacy class-based approach.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -117,7 +104,6 @@ enum UserTypes: string
 
 ### Legacy Enum Class (Deprecated)
 
-{: .warning }
 The class-based `Enum` is deprecated since v2.1 and will be removed in 3.0.0. Please migrate to native PHP enums with the `EnumHelpers` trait above.
 
 #### Generating a Legacy Enum Class
@@ -140,4 +126,4 @@ Legacy methods: `getAll()`, `isValid($value)`, `toArray()`, `getConst()`, `isVal
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).

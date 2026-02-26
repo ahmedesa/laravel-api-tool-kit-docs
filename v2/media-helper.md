@@ -1,22 +1,8 @@
----
-layout: default
-title: Media Helper
-nav_order: 7
-parent: V2 (Legacy)
-has_children: false
-permalink: v2/media-helper
----
-
 # Media Helper
-{: .no_toc }
 
 The Media Helper is a utility class provided by the `Essa\APIToolKit` namespace that streamlines the file uploading and deletion processes for your Laravel application.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 

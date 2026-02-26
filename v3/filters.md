@@ -1,21 +1,8 @@
----
-layout: default
-title: Filters
-nav_order: 4
-parent: V3 (Latest)
-has_children: false
-permalink: v3/filters
----
 # Filters
-{: .no_toc }
 
 Filters allow you to refine API query results based on various attributes.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -79,7 +66,6 @@ protected array $relationSearch = [
 ];
 ```
 
-{: .warning }
 Search functionality can affect database performance you have to use it wisely, See [Optimizing Search Operations in Your Database](https://laravelapitoolkit.com/general-tips#optimizing-search-operations-in-your-database).
 
 ### Creating Custom Filters
@@ -103,7 +89,6 @@ GET /cars?color=red
 | Sorting        | `sorts`        | Sorts results based on specified attributes.                  | `GET /cars?sorts=created_at`                |
 | Filtering      | Custom filters | Applies custom filters based on defined attributes.           | `GET /cars?color=red&model_id=1`            |
 | Inclusion      | `includes`     | Eager loads specified relationships.                          | `GET /cars?includes=model,otherModel`                  |
-
 
 ### Customizing Filters with FiltersDTO
 However, you can also override this default behavior by manually creating a FiltersDTO instance and passing it to the useFilters scope method. This gives you more control over the filter data and allows you to apply filters without relying on the query parameters.
@@ -151,4 +136,4 @@ These traits enhance the flexibility of your API's querying capabilities and all
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).

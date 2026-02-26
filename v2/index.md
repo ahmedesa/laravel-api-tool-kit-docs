@@ -1,11 +1,3 @@
----
-layout: default
-title: V2 (Legacy)
-nav_order: 1
-has_children: true
-permalink: v2/
----
-
 ## **Installation Guide**
 To begin using the package, follow these steps to install it using Composer:
 
@@ -42,7 +34,6 @@ This registers all exception renderers using Laravel 11+'s closure-based approac
 
 #### Before Laravel 11 (Legacy) <span class="label label-yellow">Deprecated</span>
 
-{: .warning }
 The `Handler` class is deprecated since v2.3 and will be removed in 3.0.0. If you're on Laravel 11+, use the approach above.
 
 For older Laravel versions, extend your exception handler from the `APIHandler` class:

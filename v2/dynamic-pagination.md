@@ -1,21 +1,8 @@
----
-layout: default
-title: Dynamic Pagination
-nav_order: 3
-parent: V2 (Legacy)
-has_children: false
-permalink: v2/dynamic-pagination
----
 # Dynamic Pagination
-{: .no_toc }
 
 Dynamic Pagination provides you with the flexibility to control the number of results displayed per page in your API responses. This feature allows you to tailor the pagination behavior according to your application's needs.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -58,4 +45,4 @@ Dynamic Pagination empowers you to control the presentation of results in your A
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).

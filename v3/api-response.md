@@ -1,22 +1,8 @@
----
-layout: default
-title: API Response
-nav_order: 2
-parent: V3 (Latest)
-has_children: false
-permalink: v3/api-response
----
-
 # API Response
-{: .no_toc }
 
 The API Response feature streamlines the process of generating consistent and standardized JSON responses in your API. It provides a set of methods for creating both successful and error responses, ensuring clarity and coherence in your API interactions.
 
 ## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ---
 
@@ -68,7 +54,6 @@ The error response structure will be:
 ### Available Methods
 Here is a list of available methods for generating standardized responses:
 
-
 | Function                                                        | Status Code
 |:----------------------------------------------------------------|:------------------
 | `responseSuccess($message, $data)`                              | 200
@@ -110,6 +95,5 @@ return $this->responseNoContent();
 
 ### Conclusion:
 The API Response feature simplifies the process of generating standardized responses in your API. By including the `ApiResponse` trait and utilizing the provided methods, you can ensure consistent and clear interactions between your API and clients, enhancing the user experience and overall code maintainability.
-
 
 ----

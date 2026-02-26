@@ -1,22 +1,43 @@
-name: CI
+name: CI - Documentation Validation
 
 on:
   push:
     branches: ["main"]
   pull_request:
+    branches: ["main"]
 
 jobs:
-  # Build job
-  build:
+  # Validation job
+  validate:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
-      - name: Build with Jekyll
-        run: bundle exec jekyll build
+
+      - name: Check for required Docsify files
+        run: |
+          echo "Checking for required files..."
+          test -f index.html && echo "✓ index.html found" || (echo "✗ index.html missing" && exit 1)
+          test -f .nojekyll && echo "✓ .nojekyll found" || (echo "✗ .nojekyll missing" && exit 1)
+          test -f _navbar.md && echo "✓ _navbar.md found" || (echo "✗ _navbar.md missing" && exit 1)
+          test -f _sidebar.md && echo "✓ _sidebar.md found" || (echo "✗ _sidebar.md missing" && exit 1)
+
+      - name: Validate markdown files
+        run: |
+          echo "Validating markdown structure..."
+          find v2 v3 -name "*.md" | while read file; do
+            if [ -f "$file" ]; then
+              echo "✓ Checking $file"
+              # Basic check: file is not empty
+              if [ ! -s "$file" ]; then
+                echo "✗ Warning: $file is empty"
+              fi
+            fi
+          done
+          echo "All markdown files validated!"
+
+      - name: Check links in HTML
+        run: |
+          echo "Verifying key links in index.html..."
+          grep -q "docsify.min.js" index.html && echo "✓ Docsify script loaded" || (echo "✗ Docsify script not found" && exit 1)
+          grep -q "loadSidebar" index.html && echo "✓ Sidebar loading enabled" || (echo "✗ Sidebar loading not configured" && exit 1)
