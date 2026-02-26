@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.github/
+
+Sitemap: https://laravelapitoolkit.com/sitemap.xml
+
+# Allow search engines to index the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

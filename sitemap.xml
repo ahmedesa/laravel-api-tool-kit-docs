@@ -1,57 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://laravelapitoolkit.com/</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>1.0</priority>
+  </url>
 
+  <!-- V3 Documentation Pages -->
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/api-generator.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/api-response.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/filters.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/actions.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/enum.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/dynamic-pagination.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/media-helper.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/ai-skill.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/general-tips.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v3/migration-guide.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
 
-<url>
-  <loc>https://laravelapitoolkit.com/</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/api-response</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/dynamic-pagination</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/filters</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/api-generator</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/actions</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/media-helper</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/enum</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://laravelapitoolkit.com/general-tips</loc>
-  <lastmod>2023-08-29T12:22:36+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+  <!-- V2 Documentation Pages -->
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/api-generator.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/api-response.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/filters.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/actions.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/enum.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/dynamic-pagination.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/media-helper.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://laravelapitoolkit.com/#/v2/general-tips.md</loc>
+    <lastmod>2026-02-26</lastmod>
+    <priority>0.75</priority>
+  </url>
 </urlset>
