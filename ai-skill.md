@@ -1,6 +1,6 @@
 # **AI Architectural Skill**
 
-The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 20 rule files and 5 guided workflows that teach your AI coding assistant to follow the same standards you do.
+The Laravel API Tool Kit ships with a built-in **AI Architectural Skill** — 21 rule files and 8 guided workflows that teach your AI coding assistant to follow the same standards you do.
 
 When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub Copilot**, or **Antigravity**), these rules ensure every generated file matches your architecture from the first draft instead of requiring manual corrections.
 
@@ -26,86 +26,124 @@ php artisan api-skill:install --force
 
 ## **Supported AI Tools**
 
-### **Cursor**
-Copies rule files as `.mdc` into `.cursor/rules/laravel-api/`.
-- **Core rules** (SKILL, anti-patterns, code-quality) are set to `alwaysApply: true` — always active.
-- **Component rules** (actions, models, controllers, etc.) are loaded on demand by referencing them in chat (e.g. `@actions`).
-
 ### **Claude Code**
-Copies the full skill to `.claude/skills/laravel-api/` and appends a reference to your `CLAUDE.md` file automatically.
+
+- Rules → `.claude/rules/laravel-api/` — auto-loaded by Claude Code on every session, no manual setup
+- Workflows → `.claude/skills/<name>/SKILL.md` — become native slash commands: `/code-review`, `/investigate`, `/new-endpoint`, etc.
+- A reference is appended to your `CLAUDE.md` automatically
+
+### **Cursor**
+
+Rules are installed as `.mdc` files into `.cursor/rules/laravel-api/` with the correct frontmatter for each type:
+
+| Rule type | Cursor behaviour |
+|-----------|-----------------|
+| Core rules (SKILL, anti-patterns, code-quality) | **Always Apply** — injected in every session |
+| Component rules (models, controllers, actions, etc.) | **Auto Attached** — activates automatically when `.php` files are open |
+| Workflows & knowledge | **Manual** — reference with `@workflow-name` when needed |
 
 ### **GitHub Copilot**
-Compiles all rules into a single `.github/copilot-instructions.md` file — the standard format Copilot reads automatically.
+
+- `.github/copilot-instructions.md` — always-on rules (SKILL overview + core rules)
+- `.github/instructions/laravel-api.instructions.md` — PHP-specific rules, auto-attached to `**/*.php` files via `applyTo:` frontmatter
 
 ### **Antigravity**
-Compiles all rules into `.agents/instructions.md` and copies the workflows to `.agents/workflows/` — matching Antigravity's expected structure.
+
+- Rules compiled → `AGENTS.md` at project root (cross-tool standard, auto-loaded)
+- Workflows → `.agent/skills/<name>/SKILL.md` — native slash commands
+- Requires Antigravity v1.20.3+
 
 ---
 
 ## **Included Rules**
 
+21 rule files covering every layer of a Laravel API:
+
 ### General Laravel Best Practices
 
 | Rule file | Covers |
 |-----------|--------|
-| `code-quality` | `strict_types`, types, naming, no hardcoded values, dependency injection, CacheKeys pattern |
-| `events` | Event classes, queued listeners, dispatch timing |
-| `authorization` | Policies, `$this->authorize()`, never inline auth |
-| `exceptions` | Route model binding, `UnprocessableEntityHttpException`, no empty catch |
-| `testing` | Feature tests, factories, failure paths |
-| `media` | File uploads, deletions, base64 images |
-| `database` | Transactions, bulk ops, eager loading, primary key convention |
+| `code-quality` | `strict_types`, types, naming, no hardcoded values, CacheKeys pattern, early return, match over ternary |
+| `dependency-injection` | Constructor injection, `private readonly`, never `new` for services or actions |
+| `events` | Event classes, queued listeners, dispatch timing, domain ServiceProviders |
+| `authorization` | Policies, `$this->authorize()`, all 5 policy methods (`viewAny`, `view`, `create`, `update`, `delete`) |
+| `exceptions` | Route model binding, `UnprocessableEntityHttpException`, no `abort()` for business logic |
+| `testing` | Feature tests, factories, failure paths, time-freezing, faking external services |
+| `database` | Transactions (events outside transactions), bulk ops, eager loading, ULID/auto-increment convention |
 | `services` | External 3rd-party integrations — Interface / Concrete / Mock / ServiceProvider pattern |
-| `anti-patterns` | 26 wrong/correct code pairs covering the most common mistakes |
+| `ddd` | Domain structure, cross-domain boundaries, App-Level Merging, Shadow Models, audience splitting |
+| `anti-patterns` | 26+ wrong/correct code pairs covering the most common mistakes |
 
 ### Package-Specific Patterns
 
 | Rule file | Covers |
 |-----------|--------|
-| `responses` | `ApiResponse` trait methods, status codes |
-| `filters` | `QueryFilters`, `Filterable`, `useFilters()` |
-| `actions` | `final` Action classes, `execute()` method, when to use vs. controller |
-| `dtos` | `final readonly class` DTOs, getters, when arrays must become DTOs |
-| `controllers` | Thin controllers, `$request->validated()`, `ApiResponse` usage |
-| `requests` | Separate create/update requests, `sometimes` for partials |
-| `resources` | `whenLoaded()`, `$this->when()`, `dateTimeFormat()` |
-| `models` | Fat model boundary, `shouldBeStrict()`, `Filterable`, package traits |
-| `repositories` | Complex read queries, typed returns, when to use vs. controller |
-| `enums` | Backed enums, `EnumHelpers`, `Rule::in(Enum::values())` |
-| `pagination` | `dynamicPaginate()`, client parameters |
+| `responses` | `ApiResponse` trait methods, status codes, `Resource::collection()` for index endpoints |
+| `filters` | `QueryFilters`, `Filterable`, `useFilters()`, `$allowedIncludes` vs hardcoded `with()` |
+| `actions` | `final readonly` Action classes, `execute()` method, when to use vs controller |
+| `dtos` | `final readonly class` DTOs, getters, `fromRequest()` factory, when arrays must become DTOs |
+| `controllers` | Thin controllers, `$request->validated()`, route-level middleware (Laravel 12) |
+| `requests` | Separate create/update requests, `sometimes` for partial updates |
+| `resources` | `whenLoaded()`, `$this->when()`, `dateTimeFormat()`, no DB calls inside `toArray()` |
+| `models` | Fat model boundary, `HasUlids`, `shouldBeStrict()` via config, `Filterable`, package traits |
+| `repositories` | Complex read queries, typed returns, `useFilters()` without array params |
+| `enums` | Backed enums, `EnumHelpers`, `Rule::in(Enum::values())`, AI rule to extract magic values |
+| `pagination` | `dynamicPaginate()`, client parameters, package max per_page cap |
 
 ---
 
 ## **Included Workflows**
 
-Step-by-step guides the AI follows for common tasks:
+8 workflows the AI follows for common tasks:
+
+### Building
 
 | Workflow | What it does |
 |----------|-------------|
-| `scan-project` | Performs a **Deep Project Analysis** (structure, services, core abstractions, feature flags, base patterns) and populates Project Defaults |
-| `new-endpoint` | Full CRUD from scratch — Model → Migration → Filter → Requests → Resource → Action → Controller → Route → Test |
-| `add-filter` | Add filtering and sorting to an existing model's list endpoint |
-| `code-review` | 17-section checklist covering every layer of the stack |
-| `update-knowledge` | Saves learnings from the current session back into the skill files |
+| `new-endpoint` | Full CRUD from scratch — detects Standard vs DDD structure, then: Model → Migration → Filter → Enum → Requests → Resource → Policy → Action → Controller → Language file → Route → Test |
+| `add-filter` | Add filtering, sorting, search, and eager-load includes to an existing model's list endpoint |
+
+### Reviewing
+
+| Workflow | What it does |
+|----------|-------------|
+| `code-review` | Multi-phase defense-oriented review: gathers full git diff → validates acceptance criteria → structural checklists → defense review (race conditions, data source validation, consistency between methods, silent data loss) → scope discipline → final report with severity table |
+
+### Debugging
+
+| Workflow | What it does |
+|----------|-------------|
+| `investigate` | Data-before-code debugging: checks knowledge base → queries DB → cross-references API vs DB vs Tinker → 15-min hypothesis checkpoint → proves root cause with data → updates knowledge |
+| `curl-test` | Builds curl command for an endpoint, parses the response, and cross-references it against the DB to pinpoint cache, resource, or transformation bugs |
+
+### Knowledge Management
+
+| Workflow | What it does |
+|----------|-------------|
+| `update-knowledge` | Saves learnings from the current session — architectural rules go into `rules/`, project-specific findings go into `knowledge/[feature].md` |
+| `organize-knowledge` | Consolidates scattered investigation docs (`INVESTIGATION_*.md`, `FIX_*.md`) into the correct `knowledge/[feature].md` file — one file per feature |
+| `create-workflow` | Captures a repeatable process discovered during a session into a new reusable workflow file |
 
 ---
 
-## **Deep Project Scan — The AI's First Task**
+## **Knowledge Base**
 
-When you join a new project or start a fresh session, the first thing you should do is trigger the **Deep Project Scan** workflow. 
+The skill supports a per-project `knowledge/` directory. Each file covers one feature area and accumulates:
 
-**Why it matters:** Standard rules only go so far. A real project has custom services, unique feature flag patterns, and specific base classes. The Deep Project Scan teaches the AI your project's specific "DNA" by scanning:
+- Bug root causes with data evidence
+- Reusable diagnostic SQL queries (with placeholder variables)
+- DB / data gotchas specific to this project
+- Lessons that don't fit into general rules
 
-- **Services & Core**: Discovers your custom abstractions for SMS, Payments, and specialized domain logic.
-- **Pattern DNA**: Finds your `BaseAction`, `BaseRepository`, or global traits like `HasTenant`.
-- **Infrastructure**: Detects your feature flag package (e.g., Pennant), cache key pattern, and custom exception handling.
-- **Auto-Config**: It automatically updates your `SKILL.md` file, ensuring the AI never "invents" a new way to do something you've already solved.
+The `investigate` workflow checks this directory before starting any investigation. The `update-knowledge` workflow writes to it after confirming a root cause. A `_TEMPLATE.md` is copied into your project during installation.
 
-**Trigger Phrases**: "Scan project", "Deep scan", "Learn project conventions"
+One file per feature — never one file per investigation ticket.
+
+---
 
 ## **Project Defaults**
 
-After installing, open the `SKILL.md` file and fill in your project's conventions under **Project Defaults**:
+After installing, open the installed `SKILL.md` (or `_overview.md` for Claude Code) and fill in your project's conventions:
 
 ```
 - Primary key type: ulid   ← change to `id` if using auto-increment
@@ -113,16 +151,26 @@ After installing, open the `SKILL.md` file and fill in your project's convention
 - Test class: Tests\TestCase
 ```
 
-The AI reads this section before generating any code, so migrations, factories, and tests will always use the correct primary key type and guard without extra prompting.
+The AI reads this section before generating any code — migrations, factories, and tests will always use the correct primary key type and guard without extra prompting.
 
 ---
 
 ## **DDD Support**
 
-The skill works with both standard Laravel structure (`app/Models/`, `app/Actions/`) and Domain-Driven Design layouts (`app/Domain/{Domain}/Models/`). The AI is instructed to scan the project structure before creating files and adapt paths to match the existing conventions.
+The skill works with both standard Laravel structure and Domain-Driven Design layouts. The `new-endpoint` workflow runs `ls app/` first, then provides an explicit path map for both structures:
+
+| Component | Standard Laravel | DDD |
+|---|---|---|
+| Model | `app/Models/` | `app/Domain/{Name}/Models/` |
+| Filter / Action / Enum | `app/Filters/`, `app/Actions/`, `app/Enums/` | `app/Domain/{Name}/Filters/` etc. |
+| Controller / Request / Resource | `app/Http/...` | `app/Http/...` (always stays in Http) |
+
+The `ddd` rule file covers cross-domain boundaries, the App-Level Merging pattern for multi-domain data, Shadow Models, and audience splitting (Application vs Dashboard resources).
 
 ---
 
 ## **Customization**
 
 The skill is a baseline. If your project has overrides (e.g. "we use `id` instead of `ulid`"), add them to the **Project Defaults** section of your installed `SKILL.md`. The AI is instructed to prioritize **Project Patterns > Global Skill Rules**.
+
+For project-specific accumulated knowledge (bugs, queries, gotchas), use the `knowledge/` directory — not the rule files.
