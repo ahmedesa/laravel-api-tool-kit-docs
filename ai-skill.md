@@ -11,10 +11,10 @@ When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub 
 Run the following command in your project:
 
 ```bash
-php artisan api-skill:install
+php artisan api-skill:install [tool]
 ```
 
-The installer will ask which AI tool you are using and automatically copy the skill to the correct location for that tool.
+The installer will ask which AI tool you are using (if not provided as an argument) and automatically copy the skill to the correct location. Supported values for `[tool]`: `claude`, `cursor`, `copilot`, `antigravity`.
 
 Add `--force` to overwrite an existing installation without a prompt:
 
@@ -128,7 +128,15 @@ Rules are installed as `.mdc` files into `.cursor/rules/laravel-api/` with the c
 
 ## **Knowledge Base**
 
-The skill supports a per-project `knowledge/` directory. Each file covers one feature area and accumulates:
+The skill installs a per-project knowledge directory. The location depends on your AI tool:
+
+| Tool | Knowledge location |
+|------|--------------------|
+| Claude Code | `.claude/knowledge/` |
+| Antigravity | `.agent/knowledge/` |
+| Cursor / Copilot | `knowledge/` (project root) |
+
+Each file covers one feature area and accumulates:
 
 - Bug root causes with data evidence
 - Reusable diagnostic SQL queries (with placeholder variables)
@@ -173,4 +181,4 @@ The `ddd` rule file covers cross-domain boundaries, the App-Level Merging patter
 
 The skill is a baseline. If your project has overrides (e.g. "we use `id` instead of `ulid`"), add them to the **Project Defaults** section of your installed `SKILL.md`. The AI is instructed to prioritize **Project Patterns > Global Skill Rules**.
 
-For project-specific accumulated knowledge (bugs, queries, gotchas), use the `knowledge/` directory — not the rule files.
+For project-specific accumulated knowledge (bugs, queries, gotchas), use the knowledge directory — not the rule files.
