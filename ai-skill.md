@@ -40,8 +40,8 @@ php artisan boost:add-skill ahmedesa/laravel-api-tool-kit
 ```
 
 > [!TIP]
-> In non-interactive environments (Docker/CI), use the `--all` flag to bypass prompts:
-> `php artisan boost:add-skill ahmedesa/laravel-api-tool-kit --all`
+> In non-interactive environments (Docker/CI), bypass the selection prompt with:
+> `php artisan boost:add-skill ahmedesa/laravel-api-tool-kit --skill=laravel-api`
 
 ---
 
