@@ -41,6 +41,10 @@ php artisan boost:add-skill ahmedesa/laravel-api-tool-kit
 
 This installs the full `skills/laravel-api/` folder including rules and workflows. For the complete experience with proper per-tool placement (slash commands, Cursor Auto Attached rules, etc.), use the package installer above.
 
+> [!TIP]
+> In non-interactive environments (Docker/CI), use the `--skill` and `-n` flags to bypass prompts:
+> `php artisan boost:add-skill ahmedesa/laravel-api-tool-kit --skill=laravel-api -n`
+
 ---
 
 ## **Supported AI Tools**
