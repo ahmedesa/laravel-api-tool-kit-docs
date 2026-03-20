@@ -8,19 +8,38 @@ When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub 
 
 ## **Installation**
 
+### Via the package installer (recommended)
+
 Run the following command in your project:
 
 ```bash
-php artisan api-skill:install [tool]
+php artisan api-skill:install
 ```
 
-The installer will ask which AI tool you are using (if not provided as an argument) and automatically copy the skill to the correct location. Supported values for `[tool]`: `claude`, `cursor`, `copilot`, `antigravity`.
+The installer will ask which AI tool you are using and automatically copy the skill to the correct location for that tool. You can also pass the tool directly:
+
+```bash
+php artisan api-skill:install claude
+php artisan api-skill:install cursor
+php artisan api-skill:install copilot
+php artisan api-skill:install antigravity
+```
 
 Add `--force` to overwrite an existing installation without a prompt:
 
 ```bash
 php artisan api-skill:install --force
 ```
+
+### Via Laravel Skills directory
+
+If your project uses [Laravel Boost](https://laravel.com/docs/12.x/boost), you can install the lite skill directly from the [Laravel Skills directory](https://skills.laravel.cloud/skills/laravel-api-tool-kit):
+
+```bash
+php artisan boost:add-skill ahmedesa/laravel-api-tool-kit
+```
+
+This installs the full `skills/laravel-api/` folder including rules and workflows. For the complete experience with proper per-tool placement (slash commands, Cursor Auto Attached rules, etc.), use the package installer above.
 
 ---
 
