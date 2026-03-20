@@ -8,9 +8,20 @@ When you use an AI coding assistant (like **Claude Code**, **Cursor**, **GitHub 
 
 ## **Installation**
 
-### Via the package installer (recommended)
+Two install methods are available. They are complementary — not competing:
 
-Run the following command in your project:
+| | Package installer | Laravel Boost |
+|---|---|---|
+| Rules loaded | Every session automatically | On-demand when contextually relevant |
+| Slash commands | ✅ `/investigate`, `/code-review`, `/new-endpoint` | ❌ |
+| Per-tool optimization | ✅ Native format per tool | ❌ Generic SKILL.md |
+| Requires Boost | ❌ | ✅ |
+
+Use **the package installer** if you want the full experience — slash commands, auto-loaded rules, and per-tool native configuration.
+
+Use **Laravel Boost** if you want a quick, agent-agnostic setup that works across all AI tools without any configuration.
+
+### Via the package installer (full experience)
 
 ```bash
 php artisan api-skill:install
@@ -31,13 +42,15 @@ Add `--force` to overwrite an existing installation without a prompt:
 php artisan api-skill:install --force
 ```
 
-### Via Laravel Skills directory
+### Via Laravel Skills directory (quick setup)
 
-If your project uses [Laravel Boost](https://laravel.com/docs/12.x/boost), you can install the lite skill directly from the [Laravel Skills directory](https://skills.laravel.cloud/skills/laravel-api-tool-kit):
+If your project uses [Laravel Boost](https://laravel.com/docs/12.x/boost), you can install directly from the [Laravel Skills directory](https://skills.laravel.cloud/skills/laravel-api-tool-kit):
 
 ```bash
 php artisan boost:add-skill ahmedesa/laravel-api-tool-kit
 ```
+
+This installs the skill to `.ai/skills/laravel-api/` — a universal location all supported agents (Claude Code, Cursor, Copilot, Antigravity, Gemini) can read from on demand.
 
 > [!TIP]
 > In non-interactive environments (Docker/CI), bypass the selection prompt with:
