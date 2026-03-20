@@ -50,11 +50,11 @@ If your project uses [Laravel Boost](https://laravel.com/docs/12.x/boost), you c
 php artisan boost:add-skill ahmedesa/laravel-api-tool-kit
 ```
 
-This installs the skill to `.ai/skills/laravel-api/` — a universal location all supported agents (Claude Code, Cursor, Copilot, Antigravity, Gemini) can read from on demand.
+This installs the skill to `.ai/skills/laravel-api-tool-kit/` — a universal location all supported agents (Claude Code, Cursor, Copilot, Antigravity, Gemini) can read from on demand.
 
 > [!TIP]
 > In non-interactive environments (Docker/CI), bypass the selection prompt with:
-> `php artisan boost:add-skill ahmedesa/laravel-api-tool-kit --skill=laravel-api`
+> `php artisan boost:add-skill ahmedesa/laravel-api-tool-kit --skill=laravel-api-tool-kit`
 
 ---
 
@@ -62,13 +62,13 @@ This installs the skill to `.ai/skills/laravel-api/` — a universal location al
 
 ### **Claude Code**
 
-- Rules → `.claude/rules/laravel-api/` — auto-loaded by Claude Code on every session, no manual setup
+- Rules → `.claude/rules/laravel-api-tool-kit/` — auto-loaded by Claude Code on every session, no manual setup
 - Workflows → `.claude/skills/<name>/SKILL.md` — become native slash commands: `/code-review`, `/investigate`, `/new-endpoint`, etc.
 - A reference is appended to your `CLAUDE.md` automatically
 
 ### **Cursor**
 
-Rules are installed as `.mdc` files into `.cursor/rules/laravel-api/` with the correct frontmatter for each type:
+Rules are installed as `.mdc` files into `.cursor/rules/laravel-api-tool-kit/` with the correct frontmatter for each type:
 
 | Rule type | Cursor behaviour |
 |-----------|-----------------|
@@ -79,7 +79,7 @@ Rules are installed as `.mdc` files into `.cursor/rules/laravel-api/` with the c
 ### **GitHub Copilot**
 
 - `.github/copilot-instructions.md` — always-on rules (SKILL overview + core rules)
-- `.github/instructions/laravel-api.instructions.md` — PHP-specific rules, auto-attached to `**/*.php` files via `applyTo:` frontmatter
+- `.github/instructions/laravel-api-tool-kit.instructions.md` — PHP-specific rules, auto-attached to `**/*.php` files via `applyTo:` frontmatter
 
 ### **Antigravity**
 
